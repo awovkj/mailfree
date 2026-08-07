@@ -11,70 +11,60 @@
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 20%, #f1f5f9 100%);
-        min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1e293b; position: relative; overflow-x: hidden;
+        font-family: "DM Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #f5f5f7;
+        min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1d1d1f; position: relative; overflow-x: hidden;
       }
       body::before {
-        content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
-        background:
-          radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
-          radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
-          radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
-        animation: backgroundFloat 20s ease-in-out infinite; z-index: -1;
+        content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
+        z-index: -1; pointer-events: none;
       }
-      footer{ position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; color: #64748b; font-size: 12px; opacity: .9; pointer-events: none; }
-      @keyframes backgroundFloat { 0%, 100% { transform: translateX(-20px) translateY(-10px) rotate(0deg);} 33% { transform: translateX(20px) translateY(10px) rotate(1deg);} 66% { transform: translateX(-10px) translateY(20px) rotate(-1deg);} }
-      .loading-container { text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15); position: relative; z-index: 1; }
-      .logo { font-size: 4rem; margin-bottom: 1rem; animation: bounce 2s infinite; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); }
-      .title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; color: #1e293b; }
-      .spinner { width: 40px; height: 40px; border: 3px solid rgba(59, 130, 246, 0.2); border-top: 3px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
-      .status { font-size: 0.9rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 500; }
-      .progress { width: 200px; height: 4px; background: rgba(59, 130, 246, 0.1); border-radius: 2px; margin: 0 auto; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.2); }
-      .progress-bar { height: 100%; background: linear-gradient(90deg, #3b82f6, #1d4ed8); border-radius: 2px; animation: progress 2s ease-in-out infinite; }
+      footer{ position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; color: #8b8b92; font-size: 12px; opacity: .9; pointer-events: none; }
+      .loading-container { text-align: center; padding: 2rem; background: color-mix(in srgb, #ffffff 92%, transparent); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-radius: 28px; border: 1px solid rgba(29, 29, 31, 0.1); box-shadow: 0 12px 34px rgba(0, 0, 0, 0.07), 0 26px 80px rgba(0, 0, 0, 0.08); position: relative; z-index: 1; }
+      .logo { font-size: 4rem; margin-bottom: 1rem; color: #1d1d1f; }
+      .title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: #1d1d1f; letter-spacing: -0.02em; }
+      .spinner { width: 40px; height: 40px; border: 3px solid rgba(29, 29, 31, 0.1); border-top: 3px solid #1d1d1f; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+      .status { font-size: 0.9rem; color: #626268; margin-bottom: 0.5rem; font-weight: 500; }
+      .progress { width: 200px; height: 4px; background: rgba(29, 29, 31, 0.06); border-radius: 2px; margin: 0 auto; overflow: hidden; }
+      .progress-bar { height: 100%; background: #1d1d1f; border-radius: 2px; animation: progress 2s ease-in-out infinite; }
       @keyframes spin { to { transform: rotate(360deg);} }
-      @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0);} 40% { transform: translateY(-10px);} 60% { transform: translateY(-5px);} }
       @keyframes progress { 0% { width: 0%; } 50% { width: 70%; } 100% { width: 100%; } }
 
-      /* 暗黑模式 */
+      /* 暗黑模式（OmniMail 风格：#0b0b0c 背景、#f5f5f7 accent） */
       :root.dark body {
-        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #1e293b 50%, #18181b 75%, #1c1917 100%);
-        color: #f8fafc;
+        background: #0b0b0c;
+        color: #f5f5f7;
       }
       :root.dark body::before {
-        background:
-          radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
-          radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
-          radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+        background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
       }
       :root.dark footer {
-        color: #64748b;
+        color: #77777f;
       }
       :root.dark .loading-container {
-        background: rgba(30, 41, 59, 0.85);
+        background: color-mix(in srgb, #161617 92%, transparent);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32), 0 26px 85px rgba(0, 0, 0, 0.45);
       }
       :root.dark .logo {
-        color: #818cf8;
-        filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+        color: #f5f5f7;
       }
       :root.dark .title {
-        color: #f8fafc;
+        color: #f5f5f7;
       }
       :root.dark .spinner {
-        border-color: rgba(99, 102, 241, 0.2);
-        border-top-color: #6366f1;
+        border-color: rgba(245, 245, 247, 0.1);
+        border-top-color: #f5f5f7;
       }
       :root.dark .status {
-        color: #94a3b8;
+        color: #aaaab0;
       }
       :root.dark .progress {
-        background: rgba(99, 102, 241, 0.1);
-        border-color: rgba(99, 102, 241, 0.2);
+        background: rgba(245, 245, 247, 0.06);
       }
       :root.dark .progress-bar {
-        background: linear-gradient(90deg, #6366f1, #4f46e5);
+        background: #f5f5f7;
       }
     </style>
     <link rel="stylesheet" href="/css/rebirth.css" />

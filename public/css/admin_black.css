@@ -69,8 +69,8 @@
 
 /* OmniMail 风格：纯色图标背景，去除渐变 */
 :root.dark .card-icon {
-  background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  background: rgba(245, 245, 247, 0.15);
+  color: #f5f5f7;
 }
 
 :root.dark .badge-count {
@@ -80,12 +80,12 @@
 
 /* 操作按钮（OmniMail 风格：纯色，去除渐变） */
 :root.dark .action-btn-primary {
-  background: #7c3aed;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  background: #f5f5f7;
+  box-shadow: 0 4px 12px rgba(245, 245, 247, 0.25);
 }
 
 :root.dark .action-btn-primary:hover {
-  background: #6d28d9;
+  background: #f5f5f7;
 }
 
 :root.dark .action-btn-secondary {
@@ -116,9 +116,9 @@
 }
 
 :root.dark .table thead th {
-  background: rgba(124, 58, 237, 0.12);
+  background: rgba(245, 245, 247, 0.12);
   color: #94a3b8;
-  border-bottom-color: rgba(124, 58, 237, 0.2);
+  border-bottom-color: rgba(245, 245, 247, 0.2);
 }
 
 :root.dark .table tbody td {
@@ -127,18 +127,18 @@
 }
 
 :root.dark .table tbody tr:hover {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(245, 245, 247, 0.08);
 }
 
 :root.dark .table tbody tr.active {
-  background: rgba(124, 58, 237, 0.15);
+  background: rgba(245, 245, 247, 0.15);
 }
 
 /* 角色徽章 */
 :root.dark .role-admin {
-  color: #a78bfa;
-  background: rgba(124, 58, 237, 0.15);
-  border-color: rgba(124, 58, 237, 0.3);
+  color: #f5f5f7;
+  background: rgba(245, 245, 247, 0.15);
+  border-color: rgba(245, 245, 247, 0.3);
 }
 
 :root.dark .role-user {
@@ -148,7 +148,7 @@
 }
 
 :root.dark .col-mailbox {
-  color: #a78bfa;
+  color: #f5f5f7;
 }
 
 /* 邮箱列表 */
@@ -159,7 +159,7 @@
 
 :root.dark .mailbox-item:hover {
   background: rgba(15, 23, 42, 0.8);
-  border-color: rgba(124, 58, 237, 0.3);
+  border-color: rgba(245, 245, 247, 0.3);
 }
 
 :root.dark .mailbox-item .address {
@@ -176,12 +176,12 @@
 
 /* 按钮（OmniMail 风格：纯色，去除渐变） */
 :root.dark .btn-primary {
-  background: #7c3aed;
+  background: #f5f5f7;
 }
 
 :root.dark .btn-primary:hover {
-  background: #6d28d9;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  background: #f5f5f7;
+  box-shadow: 0 4px 12px rgba(245, 245, 247, 0.3);
 }
 
 :root.dark .btn-secondary {
@@ -219,29 +219,29 @@
 }
 
 :root.dark .btn-ghost:hover {
-  background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  background: rgba(245, 245, 247, 0.15);
+  color: #f5f5f7;
 }
 
 :root.dark .btn-pagination {
   background: rgba(30, 41, 59, 0.8);
   border-color: rgba(255, 255, 255, 0.1);
-  color: #a78bfa;
+  color: #f5f5f7;
 }
 
 :root.dark .btn-pagination:hover:not(:disabled) {
-  background: #7c3aed;
+  background: #f5f5f7;
   color: white;
 }
 
 :root.dark .btn-edit {
-  background: rgba(124, 58, 237, 0.15);
-  border-color: rgba(124, 58, 237, 0.3);
-  color: #a78bfa;
+  background: rgba(245, 245, 247, 0.15);
+  border-color: rgba(245, 245, 247, 0.3);
+  color: #f5f5f7;
 }
 
 :root.dark .btn-edit:hover {
-  background: #7c3aed;
+  background: #f5f5f7;
   color: white;
 }
 
@@ -264,8 +264,8 @@
 
 :root.dark .input:focus,
 :root.dark .select:focus {
-  border-color: #7c3aed;
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+  border-color: #f5f5f7;
+  box-shadow: 0 0 0 4px rgba(245, 245, 247, 0.15);
   background: rgba(15, 23, 42, 0.9);
 }
 
@@ -313,7 +313,7 @@
 }
 
 :root.dark .modal-header .modal-icon {
-  color: #818cf8;
+  color: #f5f5f7;
 }
 
 :root.dark .modal-header .close,
@@ -345,13 +345,13 @@
 }
 
 :root.dark .form-label svg {
-  color: #818cf8;
+  color: #f5f5f7;
 }
 
 :root.dark .input,
 :root.dark .select {
   background: rgba(15, 23, 42, 0.6);
-  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  border: 1.5px solid rgba(245, 245, 247, 0.3);
   color: #f8fafc;
 }
 
@@ -361,8 +361,8 @@
 
 :root.dark .input:focus,
 :root.dark .select:focus {
-  border-color: rgba(129, 140, 248, 0.5);
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+  border-color: rgba(245, 245, 247, 0.5);
+  box-shadow: 0 0 0 3px rgba(245, 245, 247, 0.15);
   background: rgba(30, 41, 59, 0.9);
 }
 
@@ -375,7 +375,7 @@
 }
 
 :root.dark .toggle-text svg {
-  color: #818cf8;
+  color: #f5f5f7;
 }
 
 /* 确认对话框 */
@@ -394,15 +394,15 @@
 
 /* 用户标签（OmniMail 风格：纯色，去除渐变） */
 :root.dark .user-chip {
-  background: rgba(99, 102, 241, 0.18);
-  color: #a5b4fc;
-  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(245, 245, 247, 0.18);
+  color: #f5f5f7;
+  border-color: rgba(245, 245, 247, 0.3);
 }
 
 /* 加载 */
 :root.dark .spinner {
-  border-color: rgba(99, 102, 241, 0.2);
-  border-top-color: #818cf8;
+  border-color: rgba(245, 245, 247, 0.2);
+  border-top-color: #f5f5f7;
 }
 
 /* Toast */

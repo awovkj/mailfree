@@ -8,10 +8,10 @@
   --card: #ffffff;
   --card-glass: rgba(255, 255, 255, 0.92);
   --muted: #626268;
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-active: #4338ca;
-  --primary-light: rgba(99, 102, 241, 0.1);
+  --primary: #1d1d1f;
+  --primary-hover: #3a3a40;
+  --primary-active: #000000;
+  --primary-light: rgba(29, 29, 31, 0.06);
   --border: rgba(29, 29, 31, 0.1);
   --border-glass: rgba(29, 29, 31, 0.08);
   --text: #1d1d1f;
@@ -23,8 +23,8 @@
   --radius-sm: 10px;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 12px 34px rgba(0, 0, 0, 0.07), 0 26px 80px rgba(0, 0, 0, 0.08);
-  --shadow-button: 0 8px 20px rgba(99, 102, 241, 0.15);
-  --shadow-button-hover: 0 11px 27px rgba(99, 102, 241, 0.24);
+  --shadow-button: 0 8px 20px rgba(29, 29, 31, 0.15);
+  --shadow-button-hover: 0 11px 27px rgba(29, 29, 31, 0.24);
   --transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -82,7 +82,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.06), transparent 32rem);
+  background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
   z-index: -1;
   pointer-events: none;
 }
@@ -97,14 +97,16 @@ body::before {
   z-index: 1;
 }
 
-/* OmniMail 风格：纯净卡片，去除渐变装饰条与光晕 */
+/* OmniMail 风格：auth-card 纯净卡片 */
 .card {
-  width: min(90vw, 440px);
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 48px 44px;
+  width: min(470px, 100%);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  border-radius: 28px;
+  padding: 43px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -242,7 +244,7 @@ h1 {
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: var(--shadow-button-hover), 0 0 0 3px rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-button-hover), 0 0 0 3px rgba(29, 29, 31, 0.2);
 }
 
 /* ===== 主题切换按钮 ===== */

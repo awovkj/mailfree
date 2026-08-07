@@ -105,14 +105,14 @@ a {
 
 /* ===== Focus 状态（可访问性） ===== */
 .btn:focus-visible,
+/* OmniMail 风格：克制的焦点环 */
 .input:focus-visible,
 .select:focus-visible,
 .textarea:focus-visible,
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 3px solid color-mix(in srgb, var(--text) 25%, transparent);
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
 .status-badge{

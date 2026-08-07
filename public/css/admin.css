@@ -5,18 +5,18 @@
 
 :root {
   /* 主题颜色 - 紫色系 */
-  --admin-primary: #7c3aed;
-  --admin-primary-hover: #6d28d9;
-  --admin-secondary: #a78bfa;
+  --admin-primary: #1d1d1f;
+  --admin-primary-hover: #000000;
+  --admin-secondary: #3a3a40;
   --admin-accent: #f97316;
   --admin-success: #10b981;
   --admin-warning: #f59e0b;
   --admin-danger: #ef4444;
-  --admin-gradient: #7c3aed;
+  --admin-gradient: #1d1d1f;
   --admin-glass: rgba(255, 255, 255, 0.85);
   --admin-glass-hover: rgba(255, 255, 255, 0.95);
-  --admin-shadow: 0 4px 20px rgba(124, 58, 237, 0.1);
-  --admin-shadow-lg: 0 12px 40px rgba(124, 58, 237, 0.15);
+  --admin-shadow: 0 4px 20px rgba(29, 29, 31, 0.1);
+  --admin-shadow-lg: 0 12px 40px rgba(29, 29, 31, 0.15);
   --admin-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -31,7 +31,7 @@
 
 .topbar .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.2);
+  box-shadow: 0 6px 20px rgba(29, 29, 31, 0.2);
 }
 
 /* 主容器 */
@@ -85,7 +85,7 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: #7c3aed;
+  background: #1d1d1f;
   color: white;
 }
 
@@ -171,8 +171,8 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(124, 58, 237, 0.1);
-  color: #7c3aed;
+  background: rgba(29, 29, 31, 0.1);
+  color: #1d1d1f;
 }
 
 .badge-count {
@@ -230,14 +230,14 @@
 }
 
 .action-btn-primary {
-  background: #7c3aed;
+  background: #1d1d1f;
   color: white;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 12px rgba(29, 29, 31, 0.3);
 }
 
 .action-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+  box-shadow: 0 6px 20px rgba(29, 29, 31, 0.4);
 }
 
 .action-btn-secondary {
@@ -279,14 +279,14 @@
 }
 
 .table thead th {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(29, 29, 31, 0.08);
   color: #475569;
   font-weight: 600;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 12px 10px;
-  border-bottom: 2px solid rgba(124, 58, 237, 0.1);
+  border-bottom: 2px solid rgba(29, 29, 31, 0.1);
   text-align: center;
 }
 
@@ -304,7 +304,7 @@
 }
 
 .table tbody tr:hover {
-  background: rgba(124, 58, 237, 0.04);
+  background: rgba(29, 29, 31, 0.04);
 }
 
 .table tbody tr:last-child td {
@@ -312,14 +312,14 @@
 }
 
 .table tbody tr.active {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(29, 29, 31, 0.08);
 }
 
 /* 列宽 */
 .col-id { width: 50px; display: none; }
 .col-username { width: 18%; font-weight: 600; }
 .col-role { width: 12%; }
-.col-mailbox { width: 12%; font-weight: 600; color: #7c3aed; }
+.col-mailbox { width: 12%; font-weight: 600; color: #1d1d1f; }
 .col-can { width: 10%; }
 .col-created { width: 18%; font-size: 11px; color: #64748b; }
 .col-actions { width: 15%; }
@@ -334,9 +334,9 @@
 }
 
 .role-admin {
-  color: #7c3aed;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #1d1d1f;
+  background: rgba(29, 29, 31, 0.1);
+  border: 1px solid rgba(29, 29, 31, 0.2);
 }
 
 .role-user {
@@ -366,16 +366,16 @@
 .btn-edit {
   padding: 6px 12px;
   font-size: 12px;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  color: #7c3aed;
+  background: rgba(29, 29, 31, 0.1);
+  border: 1px solid rgba(29, 29, 31, 0.2);
+  color: #1d1d1f;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-edit:hover {
-  background: #7c3aed;
+  background: #1d1d1f;
   color: white;
   transform: scale(1.05);
 }
@@ -432,7 +432,7 @@
 
 .mailbox-item:hover {
   background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(124, 58, 237, 0.2);
+  border-color: rgba(29, 29, 31, 0.2);
   transform: translateX(4px);
 }
 
@@ -499,16 +499,16 @@
   width: 32px;
   height: 32px;
   padding: 0;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid rgba(124, 58, 237, 0.2);
-  color: #7c3aed;
+  background: rgba(29, 29, 31, 0.1);
+  border: 1px solid rgba(29, 29, 31, 0.2);
+  color: #1d1d1f;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-pagination:hover:not(:disabled) {
-  background: #7c3aed;
+  background: #1d1d1f;
   color: white;
 }
 
@@ -669,8 +669,8 @@
 .user-chip {
   padding: 4px 12px;
   border-radius: 20px;
-  background: rgba(124, 58, 237, 0.1);
-  color: #7c3aed;
+  background: rgba(29, 29, 31, 0.1);
+  color: #1d1d1f;
   font-size: 12px;
   font-weight: 600;
 }
@@ -706,8 +706,8 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(124, 58, 237, 0.1);
-  color: #7c3aed;
+  background: rgba(29, 29, 31, 0.1);
+  color: #1d1d1f;
   flex-shrink: 0;
 }
 
@@ -790,8 +790,8 @@
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(124, 58, 237, 0.2);
-  border-top-color: #7c3aed;
+  border: 2px solid rgba(29, 29, 31, 0.2);
+  border-top-color: #1d1d1f;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

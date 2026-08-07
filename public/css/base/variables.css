@@ -24,27 +24,27 @@
   --card-gradient: #ffffff;
   --card-gradient-accent: #ffffff;
 
-  /* ===== 主色系（保留 indigo 作为品牌色，但更克制使用） ===== */
-  --primary: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-active: #4338ca;
-  --primary-light: rgba(99, 102, 241, 0.1);
-  --primary-glass: rgba(99, 102, 241, 0.06);
-  --primary-rgb: 99, 102, 241;
-  --primary-gradient: #6366f1;
-  --primary-gradient-soft: rgba(99, 102, 241, 0.08);
+  /* ===== 主色系（OmniMail 风格：中性深色 accent，无品牌色） ===== */
+  --primary: #1d1d1f;
+  --primary-hover: #3a3a40;
+  --primary-active: #000000;
+  --primary-light: rgba(29, 29, 31, 0.06);
+  --primary-glass: rgba(29, 29, 31, 0.04);
+  --primary-rgb: 29, 29, 31;
+  --primary-gradient: #1d1d1f;
+  --primary-gradient-soft: rgba(29, 29, 31, 0.06);
 
-  /* ===== 次要色系 ===== */
-  --secondary: #7c3aed;
-  --secondary-hover: #6d28d9;
-  --secondary-light: rgba(124, 58, 237, 0.1);
-  --secondary-gradient: #7c3aed;
+  /* ===== 次要色系（与主色一致） ===== */
+  --secondary: #1d1d1f;
+  --secondary-hover: #3a3a40;
+  --secondary-light: rgba(29, 29, 31, 0.06);
+  --secondary-gradient: #1d1d1f;
 
-  /* ===== 强调色系 ===== */
-  --accent: #ec4899;
-  --accent-hover: #db2777;
-  --accent-light: rgba(236, 72, 153, 0.1);
-  --accent-gradient: #ec4899;
+  /* ===== 强调色系（与主色一致，OmniMail 无单独强调色） ===== */
+  --accent: #1d1d1f;
+  --accent-hover: #3a3a40;
+  --accent-light: rgba(29, 29, 31, 0.06);
+  --accent-gradient: #1d1d1f;
 
   /* ===== 状态颜色（OmniMail 风格：更深沉、可读） ===== */
   --success: #178342;
@@ -85,10 +85,10 @@
   --border-light: rgba(29, 29, 31, 0.06);
   --border-strong: rgba(29, 29, 31, 0.17);
   --border-dark: rgba(29, 29, 31, 0.17);
-  --border-focus: rgba(99, 102, 241, 0.5);
+  --border-focus: rgba(29, 29, 31, 0.17);
   --border-glass: rgba(29, 29, 31, 0.08);
   --border-glass-hover: rgba(29, 29, 31, 0.14);
-  --border-gradient: rgba(99, 102, 241, 0.25);
+  --border-gradient: rgba(29, 29, 31, 0.17);
 
   /* ===== 间距系统 ===== */
   --spacing-xs: 4px;
@@ -117,13 +117,13 @@
   --shadow-xl: 0 26px 80px rgba(0, 0, 0, 0.12);
   --shadow-2xl: 0 26px 85px rgba(0, 0, 0, 0.16);
   --shadow-glass: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 8px 20px rgba(99, 102, 241, 0.15);
-  --shadow-colored: 0 8px 20px rgba(99, 102, 241, 0.15);
+  --shadow-glow: 0 8px 20px rgba(29, 29, 31, 0.15);
+  --shadow-colored: 0 8px 20px rgba(29, 29, 31, 0.15);
   --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.04);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 26px 80px rgba(0, 0, 0, 0.08);
-  --shadow-button: 0 8px 20px rgba(99, 102, 241, 0.15);
-  --shadow-button-hover: 0 11px 27px rgba(99, 102, 241, 0.24);
+  --shadow-button: 0 8px 20px rgba(29, 29, 31, 0.15);
+  --shadow-button-hover: 0 11px 27px rgba(29, 29, 31, 0.24);
 
   /* ===== 动画系统（OmniMail 风格：更短、更克制） ===== */
   --transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);

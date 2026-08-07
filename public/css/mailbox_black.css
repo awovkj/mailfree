@@ -49,14 +49,14 @@
 :root.dark .mailbox-address {
   background: rgba(15, 23, 42, 0.6);
   border: 2px dashed #475569;
-  color: #a5b4fc;
+  color: #f5f5f7;
 }
 
 :root.dark .mailbox-address.has-email {
   border-style: solid;
-  border-color: #6366f1;
-  background: rgba(99, 102, 241, 0.15);
-  color: #a5b4fc;
+  border-color: #f5f5f7;
+  background: rgba(245, 245, 247, 0.15);
+  color: #f5f5f7;
 }
 
 /* 按钮 */
@@ -69,9 +69,9 @@
 
 :root.dark .btn-copy:hover,
 :root.dark .btn-compose:hover {
-  background: rgba(99, 102, 241, 0.15);
-  border-color: #6366f1;
-  color: #a5b4fc;
+  background: rgba(245, 245, 247, 0.15);
+  border-color: #f5f5f7;
+  color: #f5f5f7;
 }
 
 /* OmniMail 风格：纯色按钮，去除渐变 */
@@ -104,9 +104,9 @@
 }
 
 :root.dark .btn-secondary:hover {
-  background: rgba(99, 102, 241, 0.15);
-  border-color: #6366f1;
-  color: #a5b4fc;
+  background: rgba(245, 245, 247, 0.15);
+  border-color: #f5f5f7;
+  color: #f5f5f7;
 }
 
 /* 邮件列表 */
@@ -121,11 +121,11 @@
 
 :root.dark .email-item:hover {
   background: rgba(30, 41, 59, 0.85);
-  border-color: #6366f1;
+  border-color: #f5f5f7;
 }
 
 :root.dark .email-item.unread {
-  border-left: 3px solid #6366f1;
+  border-left: 3px solid #f5f5f7;
 }
 
 :root.dark .email-sender {
@@ -155,7 +155,7 @@
 
 /* 加载状态 */
 :root.dark .loading {
-  color: #6366f1;
+  color: #f5f5f7;
 }
 
 /* 搜索框 */
@@ -195,7 +195,7 @@
 }
 
 :root.dark .email-body a {
-  color: #818cf8;
+  color: #f5f5f7;
 }
 
 /* 验证码高亮（OmniMail 风格：纯色玻璃） */
@@ -216,8 +216,8 @@
 }
 
 :root.dark .tab-btn.active {
-  background: rgba(99, 102, 241, 0.15);
-  color: #a5b4fc;
+  background: rgba(245, 245, 247, 0.15);
+  color: #f5f5f7;
 }
 
 /* 刷新按钮 */
@@ -228,8 +228,8 @@
 }
 
 :root.dark .refresh-btn:hover {
-  background: rgba(99, 102, 241, 0.15);
-  color: #a5b4fc;
+  background: rgba(245, 245, 247, 0.15);
+  color: #f5f5f7;
 }
 
 /* 退出登录 */

@@ -145,10 +145,10 @@
 
 /* 选中邮箱高亮效果 */
 .mailbox-item.selected{
-  background: rgba(99, 102, 241, 0.08);
-  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(29, 29, 31, 0.08);
+  border: 1px solid rgba(29, 29, 31, 0.25);
   border-left: 3px solid var(--primary);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 2px 8px rgba(29, 29, 31, 0.1);
   transform: translateX(3px);
   position: relative;
   z-index: 5;
@@ -177,15 +177,15 @@
 }
 
 .mailbox-item.selected:hover{
-  background: rgba(99, 102, 241, 0.12);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  background: rgba(29, 29, 31, 0.12);
+  box-shadow: 0 4px 12px rgba(29, 29, 31, 0.15);
   transform: translateX(4px);
 }
 
 /* 同时置顶和选中的邮箱项 */
 .mailbox-item.pinned.selected{
-  background: rgba(99, 102, 241, 0.06);
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(29, 29, 31, 0.06);
+  border: 1px solid rgba(29, 29, 31, 0.2);
   border-left: 3px solid var(--primary);
 }
 

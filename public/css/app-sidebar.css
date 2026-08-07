@@ -20,7 +20,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(99, 102, 241, .4) transparent;
+  scrollbar-color: rgba(29, 29, 31, .4) transparent;
   scrollbar-gutter: stable both-edges;
 }
 
