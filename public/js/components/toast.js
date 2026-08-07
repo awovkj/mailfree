@@ -53,10 +53,10 @@ export async function showToast(message, type = 'info', duration = 3000) {
   
   // 背景色映射
   const colors = {
-    success: '#10b981',
-    error: '#ef4444',
-    warning: '#f59e0b',
-    info: '#3b82f6'
+    success: '#000000',
+    error: '#000000',
+    warning: '#666666',
+    info: '#000000'
   };
   
   toast.style.cssText = `

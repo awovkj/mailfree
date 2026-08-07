@@ -1,4 +1,4 @@
-/* ==============================================
+﻿/* ==============================================
    Freemail - 按钮 / 邮件列表 / 发件样式
    ============================================== */
 
@@ -122,7 +122,7 @@
   background: var(--danger-gradient);
   color: var(--text-inverse);
   border: none;
-  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .btn-danger::after{
@@ -131,7 +131,7 @@
 
 .btn-danger:hover{
   background: var(--danger-hover);
-  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
   border: none;
 }
@@ -269,7 +269,7 @@
   color: var(--text-light); 
   background: var(--card-glass); 
   border: 1px solid var(--border-glass); 
-  border-radius: 999px; 
+  border-radius: 8px; 
   padding: 2px 8px;
   white-space: nowrap;
   flex-shrink: 0;
@@ -388,7 +388,7 @@
   color: var(--text-light); 
   background: var(--card-glass); 
   border: 1px solid var(--border-glass); 
-  border-radius: 999px;
+  border-radius: 8px;
   white-space: nowrap;
   flex-shrink: 0;
 }

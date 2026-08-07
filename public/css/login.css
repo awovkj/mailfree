@@ -1,30 +1,28 @@
 /* =============================================
    Freemail 登录页
-   OmniMail 风格：中性背景 + 单色强调 + 柔和阴影
+   纯黑白极简风格（OmniMail 黑白设计稿）
    ============================================= */
 
 :root{
-  --surface: #f5f5f7;
+  --surface: #ffffff;
   --card: #ffffff;
-  --card-glass: rgba(255, 255, 255, 0.92);
-  --muted: #626268;
-  --primary: #1d1d1f;
-  --primary-hover: #3a3a40;
+  --muted: #666666;
+  --primary: #000000;
+  --primary-hover: #000000;
   --primary-active: #000000;
-  --primary-light: rgba(29, 29, 31, 0.06);
-  --border: rgba(29, 29, 31, 0.1);
-  --border-glass: rgba(29, 29, 31, 0.08);
-  --text: #1d1d1f;
-  --text-light: #3a3a40;
-  --danger: #c9342f;
-  --danger-light: rgba(201, 52, 47, 0.1);
-  --success: #178342;
-  --radius: 20px;
-  --radius-sm: 10px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 12px 34px rgba(0, 0, 0, 0.07), 0 26px 80px rgba(0, 0, 0, 0.08);
-  --shadow-button: 0 8px 20px rgba(29, 29, 31, 0.15);
-  --shadow-button-hover: 0 11px 27px rgba(29, 29, 31, 0.24);
+  --primary-light: rgba(0, 0, 0, 0.05);
+  --border: #eeeeee;
+  --text: #111111;
+  --text-light: #666666;
+  --danger: #333333;
+  --danger-light: #f5f5f5;
+  --success: #333333;
+  --radius: 8px;
+  --radius-sm: 6px;
+  --shadow: none;
+  --shadow-lg: none;
+  --shadow-button: none;
+  --shadow-button-hover: none;
   --transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -74,19 +72,6 @@ body {
   overflow: hidden;
 }
 
-/* OmniMail 风格：单色柔和光晕，去除多色渐变与动画 */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
-  z-index: -1;
-  pointer-events: none;
-}
-
 .center {
   position: relative;
   min-height: 100%;
@@ -97,34 +82,23 @@ body::before {
   z-index: 1;
 }
 
-/* OmniMail 风格：auth-card 纯净卡片 */
+/* 纯白卡片：浅灰边框、8px 圆角、无阴影、无毛玻璃 */
 .card {
-  width: min(470px, 100%);
-  background: color-mix(in srgb, var(--card) 92%, transparent);
-  border-radius: 28px;
-  padding: 43px;
+  width: 400px;
+  max-width: 100%;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   text-align: center;
   position: relative;
   overflow: hidden;
-  animation: cardSlideIn 0.5s var(--ease-out-expo);
 }
 
-@keyframes cardSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* OmniMail 风格：静态 logo，去除浮动动画 */
+/* 纯黑色 Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -137,7 +111,7 @@ body::before {
 .logo svg {
   width: 64px;
   height: 64px;
-  color: var(--primary);
+  color: #000000;
   stroke: currentColor;
   transition: transform 200ms ease;
 }
@@ -146,7 +120,7 @@ body::before {
   transform: scale(1.05);
 }
 
-/* OmniMail 风格：纯色标题，去除渐变文字与流光动画 */
+/* 主标题：纯黑文字 */
 h1 {
   font-size: 28px;
   font-weight: 700;
@@ -157,7 +131,7 @@ h1 {
   z-index: 1;
 }
 
-/* OmniMail 风格：纯色错误提示，去除渐变与抖动动画 */
+/* 错误提示：浅灰背景、深灰文字、深灰边框 */
 .err {
   color: var(--danger);
   min-height: 24px;
@@ -167,7 +141,7 @@ h1 {
   padding: 12px 18px;
   border-radius: var(--radius-sm);
   background: var(--danger-light);
-  border: 1px solid rgba(201, 52, 47, 0.2);
+  border: 1px solid #cccccc;
   display: none;
   position: relative;
   z-index: 1;
@@ -177,13 +151,14 @@ h1 {
   display: block;
 }
 
+/* 输入框：白底、浅灰边框、6px 圆角、聚焦时边框变黑 */
 .input {
   width: 100%;
   padding: 16px 20px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   margin-bottom: 20px;
-  background: var(--surface);
+  background: #ffffff;
   font-size: 16px;
   transition: var(--transition);
   font-weight: 500;
@@ -192,16 +167,15 @@ h1 {
   z-index: 1;
 }
 
-/* OmniMail 风格：聚焦时仅变更边框与阴影，去除位移 */
 .input:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--primary-light);
+  border-color: #000000;
+  box-shadow: none;
   background: #ffffff;
 }
 
 .input:hover:not(:focus) {
-  border-color: rgba(29, 29, 31, 0.17);
+  border-color: #cccccc;
 }
 
 .input::placeholder {
@@ -209,30 +183,30 @@ h1 {
   font-weight: 400;
 }
 
-/* OmniMail 风格：纯色按钮，去除渐变与光泽扫光 */
+/* 主按钮：黑底白字、6px 圆角、无阴影 */
 .btn {
   width: 100%;
   padding: 16px 24px;
   border: none;
   border-radius: var(--radius-sm);
-  background: var(--primary);
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.01em;
   transition: var(--transition);
   position: relative;
-  box-shadow: var(--shadow-button);
+  box-shadow: none;
 }
 
 .btn:hover {
-  background: var(--primary-hover);
-  box-shadow: var(--shadow-button-hover);
+  background: #000000;
+  box-shadow: none;
 }
 
 .btn:active {
-  background: var(--primary-active);
+  background: #000000;
   transition-duration: 0.1s;
 }
 
@@ -244,7 +218,7 @@ h1 {
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: var(--shadow-button-hover), 0 0 0 3px rgba(29, 29, 31, 0.2);
+  box-shadow: none;
 }
 
 /* ===== 主题切换按钮 ===== */
@@ -255,38 +229,125 @@ h1 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--card);
+  background: #ffffff;
   border: 1px solid var(--border);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow);
+  box-shadow: none;
   transition: var(--transition);
   z-index: 100;
 }
 
 .theme-toggle-login:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: #000000;
+  border-color: #000000;
 }
 
 .theme-toggle-login:hover svg {
-  color: white;
+  color: #ffffff;
 }
 
 .theme-toggle-login svg {
-  color: var(--primary);
+  color: #000000;
   transition: color 200ms ease;
 }
 
-/* 暗黑模式 */
+/* ===== Loading 旋转动画（保留） ===== */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* ===== 暗色模式：黑底白字 ===== */
+:root.dark {
+  --surface: #000000;
+  --card: #000000;
+  --muted: #999999;
+  --primary: #ffffff;
+  --primary-hover: #ffffff;
+  --primary-active: #ffffff;
+  --primary-light: rgba(255, 255, 255, 0.05);
+  --border: #333333;
+  --text: #ffffff;
+  --text-light: #999999;
+  --danger: #cccccc;
+  --danger-light: #1a1a1a;
+}
+
+:root.dark body {
+  background: #000000;
+  color: #ffffff;
+}
+
+:root.dark .card {
+  background: #000000;
+  border: 1px solid #333333;
+}
+
+:root.dark .input {
+  background: #000000;
+  border-color: #333333;
+  color: #ffffff;
+}
+
+:root.dark .input:focus {
+  border-color: #ffffff;
+  background: #000000;
+}
+
+:root.dark .input:hover:not(:focus) {
+  border-color: #666666;
+}
+
+:root.dark .input::placeholder {
+  color: #999999;
+}
+
+:root.dark .btn {
+  background: #ffffff;
+  color: #000000;
+}
+
+:root.dark .btn:hover,
+:root.dark .btn:active {
+  background: #ffffff;
+}
+
+:root.dark h1 {
+  color: #ffffff;
+}
+
+:root.dark .logo svg {
+  color: #ffffff;
+}
+
+:root.dark .err {
+  color: #cccccc;
+  background: #1a1a1a;
+  border-color: #444444;
+}
+
 :root.dark .theme-toggle-login {
-  background: rgba(30, 41, 59, 0.9);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: #000000;
+  border-color: #333333;
+}
+
+:root.dark .theme-toggle-login svg {
+  color: #ffffff;
 }
 
 :root.dark .theme-toggle-login:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+:root.dark .theme-toggle-login:hover svg {
+  color: #000000;
 }

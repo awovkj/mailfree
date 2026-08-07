@@ -40,13 +40,13 @@
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(29, 29, 31, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .mailbox-card::before {
@@ -56,7 +56,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: #1d1d1f;
+  background: #000000;
   border-radius: 18px 18px 0 0;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -68,7 +68,7 @@
 
 .mailbox-card:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(29, 29, 31, 0.18), 0 8px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(29, 29, 31, 0.15);
+  box-shadow: none;
   border-color: rgba(29, 29, 31, 0.25);
   background: rgba(255, 255, 255, 0.95);
 }
@@ -125,7 +125,7 @@
   font-size: 12px;
   white-space: nowrap;
   z-index: 21;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   margin-bottom: 4px;
   max-width: 300px;
   word-break: break-all;
@@ -141,7 +141,7 @@
   top: 8px;
   right: 8px;
   z-index: 5;
-  background: #f59e0b;
+  background: #666666;
   color: white;
   width: 24px;
   height: 24px;
@@ -150,7 +150,7 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  box-shadow: none;
   z-index: 10;
   border: 2px solid rgba(255, 255, 255, 0.9);
   transition: all 0.2s ease;
@@ -158,7 +158,7 @@
 
 .mailbox-card .pin-badge:hover {
   transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.6);
+  box-shadow: none;
 }
 
 /* 收藏标识 - 右上角显示（置顶标识右侧） */
@@ -167,7 +167,7 @@
   top: 8px;
   right: 8px;
   z-index: 10;
-  background: #fbbf24;
+  background: #666666;
   color: white;
   width: 24px;
   height: 24px;
@@ -176,7 +176,7 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+  box-shadow: none;
   border: 2px solid rgba(255, 255, 255, 0.9);
   transition: all 0.2s ease;
 }
@@ -188,7 +188,7 @@
 
 .mailbox-card .favorite-badge:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.6);
+  box-shadow: none;
 }
 
 /* 转发标识 - 右上角显示 */
@@ -197,7 +197,7 @@
   top: 8px;
   right: 8px;
   z-index: 10;
-  background: #2563eb;
+  background: #000000;
   color: white;
   width: 24px;
   height: 24px;
@@ -206,7 +206,7 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  box-shadow: none;
   border: 2px solid rgba(255, 255, 255, 0.9);
   transition: all 0.2s ease;
 }
@@ -224,7 +224,7 @@
 
 .mailbox-card .forward-badge:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.6);
+  box-shadow: none;
 }
 
 /* 悬停操作区 - 2x2 网格布局 */
@@ -244,12 +244,9 @@
   background: rgba(255, 255, 255, 0.95);
   border-radius: 14px;
   padding: 6px;
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.15),
-    0 4px 10px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
@@ -291,10 +288,8 @@
   background: rgba(29, 29, 31, 0.1);
   border-color: rgba(29, 29, 31, 0.3); 
   transform: scale(1.1) translateY(-1px);
-  box-shadow: 
-    0 6px 20px rgba(29, 29, 31, 0.25),
-    0 3px 8px rgba(0, 0, 0, 0.1);
-  color: #1d1d1f;
+  box-shadow: none;
+  color: #000000;
 }
 
 .mailbox-card .actions .btn-icon:hover::before {
@@ -302,12 +297,10 @@
 }
 
 .mailbox-card .actions .btn-icon.active{ 
-  background: #10b981; 
-  border-color: #10b981; 
+  background: #000000; 
+  border-color: #000000; 
   color: white;
-  box-shadow: 
-    0 4px 14px rgba(16, 185, 129, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .mailbox-card .actions .btn-icon:active {
@@ -458,7 +451,7 @@
   background: var(--card-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-glass);
+  box-shadow: none;
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -474,7 +467,7 @@
   background: var(--card-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-glass);
+  box-shadow: none;
   min-height: 60px;
 }
 
@@ -641,18 +634,15 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .modal-card {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  box-shadow: 
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: none;
   width: 90%;
   max-width: 480px;
   max-height: 90vh;
@@ -700,14 +690,14 @@
 
 /* 解锁图标样式 - 绿色调 */
 #login-confirm-icon.unlock {
-  color: #16a34a;
-  text-shadow: 0 0 8px rgba(22, 163, 74, 0.3);
+  color: #000000;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 /* 上锁图标样式 - 红色调 */
 #login-confirm-icon.lock {
-  color: #dc2626;
-  text-shadow: 0 0 8px rgba(220, 38, 38, 0.3);
+  color: #000000;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .modal-header .close {
@@ -727,9 +717,9 @@
 }
 
 .modal-header .close:hover {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #dc2626;
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #000000;
   transform: scale(1.05);
 }
 
@@ -764,31 +754,31 @@
   border-color: rgba(203, 213, 225, 1);
   color: #334155;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .modal-body .btn-primary {
-  background: #2563eb;
+  background: #000000;
   color: white;
   border: 1px solid transparent;
 }
 
 .modal-body .btn-primary:hover {
-  background: #1d4ed8;
+  background: #000000;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: none;
 }
 
 .modal-body .btn-danger {
-  background: #ef4444;
+  background: #000000;
   color: white;
   border: 1px solid transparent;
 }
 
 .modal-body .btn-danger:hover {
-  background: #dc2626;
+  background: #000000;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+  box-shadow: none;
 }
 
 /* === Modal 通用工具类 === */
@@ -807,7 +797,7 @@
   border-radius: 12px;
   background: rgba(248, 250, 252, 0.8);
   margin-bottom: 16px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 
 .modal-info-label {
@@ -862,8 +852,8 @@
 
 .modal-body .form-input:focus {
   outline: none;
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   background: rgba(255, 255, 255, 1);
 }
 
@@ -880,7 +870,7 @@
   border: 1px solid rgba(226, 232, 240, 0.6);
   border-radius: 12px;
   padding: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 }
 
 .view-toggle .btn {
@@ -916,13 +906,10 @@
 }
 
 .view-toggle .btn.active {
-  background: #1d1d1f;
+  background: #000000;
   color: white;
   transform: scale(1.02);
-  box-shadow: 
-    0 4px 14px rgba(29, 29, 31, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
 .view-toggle .btn.active::before {
@@ -930,10 +917,10 @@
 }
 
 .view-toggle .btn:not(.active):hover {
-  color: #1d1d1f;
+  color: #000000;
   background: rgba(29, 29, 31, 0.1);
   transform: translateY(-1px);
-  box-shadow: 0 3px 12px rgba(29, 29, 31, 0.15);
+  box-shadow: none;
 }
 
 .view-toggle .btn:not(.active):hover::before {
@@ -976,7 +963,7 @@
 
 /* 悬停状态下图标颜色 */
 .view-toggle .btn:not(.active):hover .view-icon {
-  color: #1d1d1f;
+  color: #000000;
 }
 
 

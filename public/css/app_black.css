@@ -3,137 +3,137 @@
    独立 CSS 文件 - 用于手动切换主题
    ============================================= */
 
-/* ===== 暗黑模式变量覆盖（OmniMail 风格：深沉、克制） ===== */
+/* ===== 暗黑模式变量覆盖（纯黑白配色） ===== */
 :root.dark {
   color-scheme: dark;
 
-  /* ===== 背景系统 ===== */
-  --surface: #0b0b0c;
-  --surface-bg: #0b0b0c;
-  --surface-overlay: #161617;
-  --surface-muted: #1c1c1e;
-  --surface-hover: #242426;
+  /* ===== 背景系统（纯黑） ===== */
+  --surface: #000000;
+  --surface-bg: #000000;
+  --surface-overlay: #0a0a0a;
+  --surface-muted: #0a0a0a;
+  --surface-hover: #1a1a1a;
   --surface-pattern: none;
   --surface-mesh: none;
 
   /* ===== 卡片系统 ===== */
-  --card: #161617;
-  --card-hover: #1c1c1e;
-  --card-glass: rgba(22, 22, 23, 0.92);
-  --card-glass-hover: rgba(28, 28, 30, 0.98);
-  --card-gradient: #161617;
-  --card-gradient-accent: #161617;
+  --card: #0a0a0a;
+  --card-hover: #1a1a1a;
+  --card-glass: #0a0a0a;
+  --card-glass-hover: #1a1a1a;
+  --card-gradient: #0a0a0a;
+  --card-gradient-accent: #0a0a0a;
 
-  /* ===== 主色系（OmniMail 暗色：中性浅色 accent） ===== */
-  --primary: #f5f5f7;
-  --primary-hover: #e8e8ea;
-  --primary-active: #d8d8de;
-  --primary-light: rgba(245, 245, 247, 0.1);
-  --primary-glass: rgba(245, 245, 247, 0.06);
-  --primary-gradient: #f5f5f7;
-  --primary-gradient-soft: rgba(245, 245, 247, 0.08);
+  /* ===== 主色系（纯白 accent） ===== */
+  --primary: #ffffff;
+  --primary-hover: #ffffff;
+  --primary-active: #e0e0e0;
+  --primary-light: rgba(255, 255, 255, 0.08);
+  --primary-glass: rgba(255, 255, 255, 0.05);
+  --primary-gradient: #ffffff;
+  --primary-gradient-soft: rgba(255, 255, 255, 0.08);
 
-  /* ===== 次要色系（与主色一致） ===== */
-  --secondary: #f5f5f7;
-  --secondary-hover: #e8e8ea;
-  --secondary-light: rgba(245, 245, 247, 0.1);
-  --secondary-gradient: #f5f5f7;
+  /* ===== 次要色系（纯白） ===== */
+  --secondary: #ffffff;
+  --secondary-hover: #ffffff;
+  --secondary-light: rgba(255, 255, 255, 0.08);
+  --secondary-gradient: #ffffff;
 
-  /* ===== 强调色系（与主色一致） ===== */
-  --accent: #f5f5f7;
-  --accent-hover: #e8e8ea;
-  --accent-light: rgba(245, 245, 247, 0.1);
-  --accent-gradient: #f5f5f7;
+  /* ===== 强调色系（纯白） ===== */
+  --accent: #ffffff;
+  --accent-hover: #ffffff;
+  --accent-light: rgba(255, 255, 255, 0.08);
+  --accent-gradient: #ffffff;
 
-  /* ===== 状态颜色（OmniMail 暗色版） ===== */
-  --success: #55c77c;
-  --success-hover: #7dd99c;
-  --success-light: rgba(36, 144, 77, 0.16);
-  --success-soft: rgba(36, 144, 77, 0.16);
-  --success-gradient: #55c77c;
+  /* ===== 状态颜色（黑白灰） ===== */
+  --success: #ffffff;
+  --success-hover: #ffffff;
+  --success-light: rgba(255, 255, 255, 0.08);
+  --success-soft: rgba(255, 255, 255, 0.08);
+  --success-gradient: #ffffff;
 
-  --warning: #efb64d;
-  --warning-hover: #f7c97a;
-  --warning-light: rgba(188, 123, 14, 0.17);
-  --warning-soft: rgba(188, 123, 14, 0.17);
-  --warning-gradient: #efb64d;
+  --warning: #999999;
+  --warning-hover: #ffffff;
+  --warning-light: rgba(255, 255, 255, 0.08);
+  --warning-soft: rgba(255, 255, 255, 0.08);
+  --warning-gradient: #999999;
 
-  --danger: #ff7771;
-  --danger-hover: #ff9c98;
-  --danger-active: #ffb4b0;
-  --danger-light: rgba(201, 52, 47, 0.18);
-  --danger-soft: rgba(201, 52, 47, 0.18);
-  --danger-gradient: #ff7771;
+  --danger: #ffffff;
+  --danger-hover: #ffffff;
+  --danger-active: #e0e0e0;
+  --danger-light: rgba(255, 255, 255, 0.08);
+  --danger-soft: rgba(255, 255, 255, 0.08);
+  --danger-gradient: #ffffff;
 
-  --info: #60a5fa;
-  --info-hover: #93c5fd;
-  --info-light: rgba(59, 130, 246, 0.18);
-  --info-gradient: #60a5fa;
+  --info: #ffffff;
+  --info-hover: #ffffff;
+  --info-light: rgba(255, 255, 255, 0.08);
+  --info-gradient: #ffffff;
 
   /* ===== 文字颜色 ===== */
-  --text: #f5f5f7;
-  --text-light: #d8d8de;
-  --text-muted: #aaaab0;
-  --text-secondary: #8b8b92;
-  --text-tertiary: #77777f;
-  --text-disabled: #4d4d52;
-  --text-inverse: #111112;
+  --text: #ffffff;
+  --text-light: #e0e0e0;
+  --text-muted: #999999;
+  --text-secondary: #666666;
+  --text-tertiary: #4d4d4d;
+  --text-disabled: #333333;
+  --text-inverse: #000000;
 
   /* ===== 边框系统 ===== */
-  --border: rgba(255, 255, 255, 0.1);
-  --border-light: rgba(255, 255, 255, 0.06);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --border-dark: rgba(255, 255, 255, 0.18);
-  --border-focus: rgba(245, 245, 247, 0.18);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.14);
-  --border-gradient: rgba(245, 245, 247, 0.18);
+  --border: #1a1a1a;
+  --border-light: #0f0f0f;
+  --border-strong: #333333;
+  --border-dark: #ffffff;
+  --border-focus: #ffffff;
+  --border-glass: #1a1a1a;
+  --border-glass-hover: #333333;
+  --border-gradient: #ffffff;
 
-  /* ===== 阴影系统 ===== */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.22);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22), 0 12px 34px rgba(0, 0, 0, 0.18);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.22), 0 12px 34px rgba(0, 0, 0, 0.18);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.28), 0 12px 34px rgba(0, 0, 0, 0.18);
-  --shadow-lg: 0 12px 34px rgba(0, 0, 0, 0.32), 0 26px 85px rgba(0, 0, 0, 0.45);
-  --shadow-xl: 0 26px 85px rgba(0, 0, 0, 0.45);
-  --shadow-2xl: 0 26px 85px rgba(0, 0, 0, 0.55);
-  --shadow-glass: 0 1px 2px rgba(0, 0, 0, 0.22), 0 12px 34px rgba(0, 0, 0, 0.18);
-  --shadow-glow: 0 8px 20px rgba(245, 245, 247, 0.15);
-  --shadow-colored: 0 8px 20px rgba(245, 245, 247, 0.15);
-  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.22);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.22), 0 12px 34px rgba(0, 0, 0, 0.18);
-  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.28), 0 26px 85px rgba(0, 0, 0, 0.45);
-  --shadow-button: 0 8px 20px rgba(245, 245, 247, 0.15);
-  --shadow-button-hover: 0 11px 27px rgba(245, 245, 247, 0.24);
+  /* ===== 阴影系统（无阴影） ===== */
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  --shadow-2xl: none;
+  --shadow-glass: none;
+  --shadow-glow: none;
+  --shadow-colored: none;
+  --shadow-inner: none;
+  --shadow-card: none;
+  --shadow-card-hover: none;
+  --shadow-button: none;
+  --shadow-button-hover: none;
 
   /* ===== 其他变量 ===== */
-  --muted: #aaaab0;
-  --muted2: #8b8b92;
+  --muted: #999999;
+  --muted2: #666666;
 }
 
-/* ===== 暗黑模式状态徽章（OmniMail 风格：纯色玻璃） ===== */
+/* ===== 暗黑模式状态徽章（黑白灰） ===== */
 :root.dark .status-queued {
-  color: #fbbf24;
-  background: rgba(245, 158, 11, 0.2);
-  border-color: rgba(245, 158, 11, 0.4);
+  color: #999999;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #333333;
 }
 
 :root.dark .status-delivered {
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.2);
-  border-color: rgba(16, 185, 129, 0.4);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
 }
 
 :root.dark .status-failed {
-  color: #f87171;
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
 }
 
 :root.dark .status-processing {
-  color: #60a5fa;
-  background: rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.4);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #333333;
 }
 
 /* ===== 暗黑模式特定样式覆盖（OmniMail 风格：克制、统一） ===== */

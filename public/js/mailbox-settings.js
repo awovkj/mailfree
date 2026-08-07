@@ -301,7 +301,7 @@ function showToast(message, type = 'info') {
     font-size: 14px;
     z-index: 10000;
     animation: slideIn 0.3s ease;
-    background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
+    background: #000000;
   `;
   
   document.body.appendChild(toast);
@@ -391,8 +391,8 @@ export function injectDialogStyles() {
     }
     .form-input:focus {
       outline: none;
-      border-color: var(--primary-color, #3b82f6);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      border-color: var(--primary-color, #000000);
+      box-shadow: none;
     }
     .badge {
       display: inline-flex;

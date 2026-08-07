@@ -1,4 +1,4 @@
-/* ==============================================
+﻿/* ==============================================
    Freemail - 响应式样式
    ============================================== */
 
@@ -60,7 +60,7 @@
     font-size: 12px;
     border-radius: 8px;
     background: var(--primary-light);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     color: var(--primary);
   }
   .sidebar .sidebar-header{ cursor: pointer; }
@@ -215,7 +215,7 @@
 
 /* mailboxes 页面搜索条样式 */
 .page-mailboxes .toolbar{ display:flex; justify-content:center; margin-bottom:12px; }
-.searchbar{ display:flex; align-items:center; gap:8px; background: var(--card-glass); border:1px solid var(--border-glass); padding:8px 10px; border-radius: 999px; box-shadow: var(--shadow-glass); width: min(720px, 100%); }
+.searchbar{ display:flex; align-items:center; gap:8px; background: var(--card-glass); border:1px solid var(--border-glass); padding:8px 10px; border-radius: 8px; box-shadow: var(--shadow-glass); width: min(720px, 100%); }
 .search-input{ flex:1; border:none; background: transparent; outline: none; padding: 6px 8px; font-size:14px; color: var(--text); }
 .search-input::placeholder{ color: var(--muted2); }
 .page-mailboxes .btn-sm{ height:36px; }

@@ -61,7 +61,7 @@ export function createModal(options = {}) {
     <div class="modal-content" style="margin-bottom: 20px;">${content}</div>
     <div class="modal-actions" style="display: flex; gap: 12px; justify-content: flex-end;">
       ${showCancel ? `<button class="modal-cancel" style="padding: 8px 16px; border: 1px solid #ddd; background: white; border-radius: 6px; cursor: pointer;">${cancelText}</button>` : ''}
-      <button class="modal-confirm" style="padding: 8px 16px; border: none; background: #3b82f6; color: white; border-radius: 6px; cursor: pointer;">${confirmText}</button>
+      <button class="modal-confirm" style="padding: 8px 16px; border: none; background: #000000; color: white; border-radius: 6px; cursor: pointer;">${confirmText}</button>
     </div>
   `;
 

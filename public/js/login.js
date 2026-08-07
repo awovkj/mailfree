@@ -20,7 +20,7 @@ let isSubmitting = false;
         showToast(msg, 'info');
       } else if (err) {
         err.textContent = msg;
-        err.style.color = '#1d1d1f';
+        err.style.color = '#000000';
       }
     }, 300);
   }

@@ -1,4 +1,4 @@
-/* ==============================================
+﻿/* ==============================================
    Freemail - 侧边栏样式
    ============================================== */
 
@@ -47,7 +47,7 @@
   box-shadow: var(--shadow-glass);
 }
 .sidebar-search-input::placeholder{ color: var(--muted2); }
-.sidebar-search-input:focus{ outline:none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59,130,246,.15); background: #fff; }
+.sidebar-search-input:focus{ outline:none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,0,0,.15); background: #fff; }
 
 /* 更细、更透明的滚动条（Chromium/WebKit） */
 .sidebar::-webkit-scrollbar{ width: 8px; height: 8px; }
@@ -55,11 +55,11 @@
 .sidebar::-webkit-scrollbar-track{ background: transparent; }
 .sidebar::-webkit-scrollbar-thumb{
   background: rgba(100,116,139,.35);
-  border-radius: 999px;
+  border-radius: 8px;
   border: 2px solid rgba(255,255,255,.5);
 }
-.sidebar:hover::-webkit-scrollbar-thumb{ background: rgba(59,130,246,.6); }
-.sidebar::-webkit-scrollbar-thumb:hover{ background: rgba(59,130,246,.8); }
+.sidebar:hover::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.6); }
+.sidebar::-webkit-scrollbar-thumb:hover{ background: rgba(0,0,0,.8); }
 
 .sidebar:hover{
   box-shadow: var(--shadow-lg);
@@ -110,8 +110,8 @@
   border-radius: 12px;
   padding: 4px 8px;
   background: rgba(var(--primary-rgb), 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   min-width: 50px;
   text-align: center;
   transition: var(--transition);
@@ -126,7 +126,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
   opacity: 0;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -164,7 +164,7 @@
 .select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-light), 0 4px 14px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-light), 0 4px 14px rgba(0, 0, 0, 0.15);
   transform: scale(1.01);
 }
 
@@ -175,7 +175,7 @@
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(59, 130, 246, 0.05);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 /* 按钮图标动画 */
@@ -275,8 +275,8 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   position: relative;
   overflow: hidden;
@@ -298,7 +298,7 @@
   border-color: var(--primary);
   color: white;
   transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .sidebar-toggle-btn:hover::before {
@@ -329,9 +329,9 @@
               padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               background 0.3s ease,
               box-shadow 0.3s ease;
-  background: rgba(59, 130, 246, 0.05);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15), 
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 
               inset 0 1px 0 rgba(255, 255, 255, 0.2);
   animation: sidebarPulse 4s ease-in-out infinite;
 }
@@ -398,15 +398,15 @@
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(59, 130, 246, 0.2);
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .sidebar.collapsed .sidebar-toggle-btn:hover {
   background: var(--primary);
   transform: scale(1.15) translateY(-3px);
-  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.collapsed .sidebar-toggle-btn span {
@@ -432,18 +432,18 @@
   padding: 6px 4px;
   font-size: 10px;
   border-radius: 6px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   color: var(--primary);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.collapsed #mb-more:hover {
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar.collapsed #mb-more-text {
@@ -482,8 +482,8 @@
   padding: 5px 4px;
   font-size: 10px;
   border-radius: 6px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   color: var(--primary);
 }
 
@@ -526,24 +526,24 @@
   padding: 28px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: var(--radius);
-  border: 1px solid rgba(16, 185, 129, 0.08);
-  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .container.sidebar-collapsed .email-display {
   min-height: 80px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(16, 185, 129, 0.15);
+  border: 2px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container.sidebar-collapsed .email-display:hover {
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .container.sidebar-collapsed .mailbox-actions {
@@ -566,8 +566,8 @@
   padding: 24px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--radius);
-  border: 1px solid rgba(59, 130, 246, 0.08);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .container.sidebar-collapsed .generate-action {
@@ -592,13 +592,13 @@
 /* 侧板收起时的卡片样式优化 */
 .container.sidebar-collapsed .generate-card {
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--card);
 }
 
 .container.sidebar-collapsed .inbox-card {
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--card);
   transform: translateY(0);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -606,7 +606,7 @@
 
 .container.sidebar-collapsed .inbox-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* 侧板收起时的整体容器动画 */
@@ -634,11 +634,11 @@
 
 @keyframes sidebarPulse {
   0%, 100% {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15),
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   50% {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25),
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 }
@@ -648,7 +648,7 @@
     text-shadow: none;
   }
   50% {
-    text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -699,13 +699,13 @@
     width: 28px;
     height: 28px;
     border-radius: 8px;
-    background: rgba(59, 130, 246, 0.15);
-    box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
   }
   
   .sidebar.collapsed .sidebar-toggle-btn:hover {
     transform: scale(1.2) translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   }
   
   .sidebar.collapsed .sidebar-toggle-btn span {
@@ -794,11 +794,11 @@
 }
 
 .generate-card{
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .inbox-card{
-  background: rgba(16, 185, 129, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 .listcard-header{
   display: grid;
@@ -811,7 +811,7 @@
   margin: 0; display:flex; align-items:center; gap:8px; justify-self: start;
 }
 .view-switch{ 
-  justify-self: center; display: inline-flex; background: var(--card-glass); border:1px solid var(--border-glass); border-radius: 999px; overflow:hidden; box-shadow: var(--shadow-glass);
+  justify-self: center; display: inline-flex; background: var(--card-glass); border:1px solid var(--border-glass); border-radius: 8px; overflow:hidden; box-shadow: var(--shadow-glass);
 }
 .seg-btn{
   background: transparent; border:none; padding: 8px 16px; font-weight:600; color: var(--text-light); cursor:pointer; transition: var(--transition);
@@ -820,12 +820,12 @@
   background: var(--primary-light);
   color: var(--primary);
 }
-.seg-btn:hover{ background: rgba(59,130,246,0.08); color: var(--primary); }
+.seg-btn:hover{ background: rgba(0,0,0,0.08); color: var(--primary); }
 
 .loading-indicator{ display:none; align-items:center; gap:8px; justify-self:end; color: var(--text-light); }
 .loading-indicator.show{ display:inline-flex; }
 .spinner{
-  width:16px; height:16px; border:2px solid rgba(59,130,246,0.2); border-top-color: var(--primary); border-radius:50%; animation: spin 0.8s linear infinite;
+  width:16px; height:16px; border:2px solid rgba(0,0,0,0.2); border-top-color: var(--primary); border-radius:50%; animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg);} }
 

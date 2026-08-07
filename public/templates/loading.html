@@ -12,8 +12,8 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
         font-family: "DM Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #f5f5f7;
-        min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #1d1d1f; position: relative; overflow-x: hidden;
+        background: #ffffff;
+        min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #111111; position: relative; overflow-x: hidden;
       }
       body::before {
         content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -21,50 +21,49 @@
         z-index: -1; pointer-events: none;
       }
       footer{ position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; color: #8b8b92; font-size: 12px; opacity: .9; pointer-events: none; }
-      .loading-container { text-align: center; padding: 2rem; background: color-mix(in srgb, #ffffff 92%, transparent); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border-radius: 28px; border: 1px solid rgba(29, 29, 31, 0.1); box-shadow: 0 12px 34px rgba(0, 0, 0, 0.07), 0 26px 80px rgba(0, 0, 0, 0.08); position: relative; z-index: 1; }
-      .logo { font-size: 4rem; margin-bottom: 1rem; color: #1d1d1f; }
-      .title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: #1d1d1f; letter-spacing: -0.02em; }
-      .spinner { width: 40px; height: 40px; border: 3px solid rgba(29, 29, 31, 0.1); border-top: 3px solid #1d1d1f; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+      .loading-container { text-align: center; padding: 2rem; background: #ffffff; border-radius: 8px; border: 1px solid #eeeeee; position: relative; z-index: 1; }
+      .logo { font-size: 4rem; margin-bottom: 1rem; color: #000000; }
+      .title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: #111111; letter-spacing: -0.02em; }
+      .spinner { width: 32px; height: 32px; border: 2px solid #eeeeee; border-top: 2px solid #000000; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
       .status { font-size: 0.9rem; color: #626268; margin-bottom: 0.5rem; font-weight: 500; }
-      .progress { width: 200px; height: 4px; background: rgba(29, 29, 31, 0.06); border-radius: 2px; margin: 0 auto; overflow: hidden; }
-      .progress-bar { height: 100%; background: #1d1d1f; border-radius: 2px; animation: progress 2s ease-in-out infinite; }
+      .progress { width: 200px; height: 4px; background: #eeeeee; border-radius: 2px; margin: 0 auto; overflow: hidden; }
+      .progress-bar { height: 100%; background: #000000; border-radius: 2px; animation: progress 2s ease-in-out infinite; }
       @keyframes spin { to { transform: rotate(360deg);} }
       @keyframes progress { 0% { width: 0%; } 50% { width: 70%; } 100% { width: 100%; } }
 
-      /* 暗黑模式（OmniMail 风格：#0b0b0c 背景、#f5f5f7 accent） */
+      /* 暗黑模式（纯黑白：黑底白字） */
       :root.dark body {
-        background: #0b0b0c;
-        color: #f5f5f7;
+        background: #000000;
+        color: #ffffff;
       }
       :root.dark body::before {
-        background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
+        background: none;
       }
       :root.dark footer {
-        color: #77777f;
+        color: #666666;
       }
       :root.dark .loading-container {
-        background: color-mix(in srgb, #161617 92%, transparent);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32), 0 26px 85px rgba(0, 0, 0, 0.45);
+        background: #0a0a0a;
+        border: 1px solid #1a1a1a;
       }
       :root.dark .logo {
-        color: #f5f5f7;
+        color: #ffffff;
       }
       :root.dark .title {
-        color: #f5f5f7;
+        color: #ffffff;
       }
       :root.dark .spinner {
-        border-color: rgba(245, 245, 247, 0.1);
-        border-top-color: #f5f5f7;
+        border-color: #1a1a1a;
+        border-top-color: #ffffff;
       }
       :root.dark .status {
-        color: #aaaab0;
+        color: #999999;
       }
       :root.dark .progress {
-        background: rgba(245, 245, 247, 0.06);
+        background: #1a1a1a;
       }
       :root.dark .progress-bar {
-        background: #f5f5f7;
+        background: #ffffff;
       }
     </style>
     <link rel="stylesheet" href="/css/rebirth.css" />

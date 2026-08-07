@@ -2,31 +2,30 @@
    卡片组件样式
    ============================================= */
 
-/* 基础卡片（OmniMail 风格：纯净表面、细边框、柔和阴影） */
+/* 基础卡片（黑白极简：白底浅灰边框、无阴影） */
 .card {
   background: var(--card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   padding: var(--spacing-lg);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition: border-color 150ms ease;
 }
 
 .card:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
 }
 
-/* 毛玻璃卡片 */
+/* 毛玻璃卡片（禁用毛玻璃） */
 .card-glass {
-  background: var(--card-glass);
-  backdrop-filter: var(--blur-lg);
-  -webkit-backdrop-filter: var(--blur-lg);
+  background: var(--card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--border);
 }
 
 .card-glass:hover {
-  background: var(--card-glass-hover);
+  background: var(--card-hover);
   border-color: var(--border-strong);
 }
 
@@ -76,24 +75,18 @@
 
 .card-clickable:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
 }
 
-.card-clickable:active {
-  box-shadow: var(--shadow-sm);
-}
-
-/* 选中状态 */
+/* 选中状态（黑色边框） */
 .card.selected,
 .card.active {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-light);
 }
 
 /* 高亮卡片 */
 .card-highlight {
   border-color: var(--primary);
-  background: var(--primary-glass);
+  background: var(--surface-muted);
 }
 
 /* 卡片网格 */
@@ -107,20 +100,19 @@
 .mailbox-card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   padding: var(--spacing-md);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition: border-color 150ms ease;
   position: relative;
 }
 
 .mailbox-card:hover {
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
 }
 
 .mailbox-card.pinned {
-  border-color: var(--warning);
-  background: var(--warning-soft);
+  border-color: var(--text-muted);
+  background: var(--surface-muted);
 }
 
 .mailbox-card .card-actions {
@@ -132,11 +124,11 @@
 /* 邮件卡片 */
 .email-card {
   background: var(--card);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   padding: var(--spacing-md);
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease;
+  transition: background 150ms ease, border-color 150ms ease;
 }
 
 .email-card:hover {
@@ -145,7 +137,7 @@
 }
 
 .email-card.unread {
-  background: var(--primary-glass);
+  background: var(--surface-muted);
   border-color: var(--primary);
 }
 
@@ -155,10 +147,10 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 4px;
+  width: 3px;
   height: 60%;
   background: var(--primary);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0;
 }
 
 /* 空状态 */

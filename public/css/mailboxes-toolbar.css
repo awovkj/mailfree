@@ -68,7 +68,7 @@
 
 .filter-select:focus {
   border-color: rgba(29, 29, 31, 0.6);
-  box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.1);
+  box-shadow: none;
   background: rgba(255, 255, 255, 1);
 }
 
@@ -93,7 +93,7 @@
 
 .batch-actions .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 /* 列表视图样式 */
@@ -124,7 +124,7 @@
   background: var(--card-glass);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-glass);
+  box-shadow: none;
   cursor: pointer;
   transition: all 0.2s ease;
   min-height: 60px;
@@ -132,7 +132,7 @@
 
 .mailbox-list-item:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
   border-color: rgba(29, 29, 31, 0.3);
   background: rgba(255, 255, 255, 0.95);
 }
@@ -148,24 +148,24 @@
 }
 
 .pin-icon {
-  color: #f59e0b;
+  color: #666666;
   font-size: 16px;
-  text-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
+  text-shadow: 0 1px 3px rgba(102, 102, 102, 0.3);
   transition: transform 0.2s ease;
 }
 
 .favorite-icon {
-  color: #fbbf24;
+  color: #666666;
   font-size: 14px;
-  text-shadow: 0 1px 3px rgba(251, 191, 36, 0.3);
+  text-shadow: 0 1px 3px rgba(102, 102, 102, 0.3);
   transition: transform 0.2s ease;
   margin-left: 2px;
 }
 
 .forward-icon {
-  color: #3b82f6;
+  color: #000000;
   font-size: 14px;
-  text-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease;
   margin-left: 2px;
 }
@@ -243,16 +243,16 @@
 
 /* 登录状态 */
 .mailbox-info .meta .meta-login.enabled {
-  background: rgba(34, 197, 94, 0.15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .mailbox-info .meta .meta-login.disabled {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* 收藏状态 */
 .mailbox-info .meta .meta-fav.active {
-  background: rgba(251, 191, 36, 0.2);
+  background: rgba(102, 102, 102, 0.2);
 }
 
 /* 转发地址显示 */
@@ -261,10 +261,10 @@
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-  color: #3b82f6;
+  color: #000000;
   font-size: 11px;
   max-width: 200px;
   overflow: hidden;
@@ -286,8 +286,8 @@
   padding: 6px;
   border-radius: 10px;
   border: 1px solid rgba(226, 232, 240, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .list-actions .btn {
@@ -324,10 +324,8 @@
   transform: translateY(-2px);
   background: rgba(29, 29, 31, 0.1);
   border-color: rgba(29, 29, 31, 0.3);
-  color: #1d1d1f;
-  box-shadow: 
-    0 6px 20px rgba(29, 29, 31, 0.2),
-    0 3px 10px rgba(0, 0, 0, 0.1);
+  color: #000000;
+  box-shadow: none;
 }
 
 .list-actions .btn:hover::before {
@@ -335,12 +333,10 @@
 }
 
 .list-actions .btn.active {
-  background: #10b981;
-  border-color: #10b981;
+  background: #000000;
+  border-color: #000000;
   color: white;
-  box-shadow: 
-    0 4px 14px rgba(16, 185, 129, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .list-actions .btn.active::before {
@@ -504,8 +500,8 @@
 
 .form-textarea:focus {
   outline: none;
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   background: rgba(255, 255, 255, 1);
 }
 
