@@ -41,7 +41,7 @@
   justify-content: space-between;
   padding: 20px 24px;
   border-bottom: 1px solid #e2e8f0;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: #f8fafc;
 }
 
 .subpage-title {
@@ -89,7 +89,7 @@
   padding: 16px;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: #f8fafc;
 }
 
 .info-label {
@@ -178,7 +178,7 @@
 }
 
 .user-item.selected {
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  background: #dbeafe;
   border-color: #93c5fd;
 }
 
@@ -220,7 +220,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  background: #dbeafe;
   border: 1px solid #93c5fd;
   border-radius: 20px;
   font-size: 12px;
@@ -289,7 +289,7 @@
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: #1e293b;
   color: #fff;
   padding: 6px 10px;
   border-radius: 6px;
@@ -363,7 +363,7 @@
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  background: #1e293b;
   color: #fff;
   padding: 6px 10px;
   border-radius: 6px;

@@ -1,46 +1,17 @@
 /* =============================================
    移动端暗黑模式样式
+   OmniMail 风格：复用 app_black.css 的统一 token
    ============================================= */
-
-/* ===== 暗黑模式移动端覆盖 ===== */
-:root.dark {
-  --surface: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #1e293b 50%, #18181b 75%, #1c1917 100%);
-  --card: rgba(30, 41, 59, 0.85);
-  --card-hover: rgba(30, 41, 59, 0.95);
-  --card-glass: rgba(30, 41, 59, 0.6);
-  --card-glass-hover: rgba(30, 41, 59, 0.8);
-  --card-gradient: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
-  --primary-light: rgba(99, 102, 241, 0.2);
-  --primary-glass: rgba(99, 102, 241, 0.1);
-  --text: #f8fafc;
-  --text-light: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-secondary: #64748b;
-  --text-disabled: #475569;
-  --text-inverse: #0f172a;
-  --border: #334155;
-  --border-light: #1e293b;
-  --border-glass: rgba(255, 255, 255, 0.1);
-  --border-glass-hover: rgba(255, 255, 255, 0.15);
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(99, 102, 241, 0.1);
-  --muted: #94a3b8;
-  --muted2: #64748b;
-}
 
 /* ===== 移动端特定覆盖 ===== */
 @media (max-width: 900px) {
   :root.dark body {
-    background: var(--surface);
+    background: var(--surface-bg);
   }
 
+  /* OmniMail 风格：单色柔和光晕，去除多色渐变 */
   :root.dark body::before {
-    background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.12), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(236, 72, 153, 0.08), transparent),
-      radial-gradient(ellipse 50% 60% at 0% 80%, rgba(16, 185, 129, 0.08), transparent);
+    background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
   }
 
   :root.dark body::after {
@@ -49,8 +20,8 @@
 
   /* 顶部栏 */
   :root.dark .topbar {
-    background: rgba(30, 41, 59, 0.9);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+    background: rgba(22, 22, 23, 0.85);
+    border-bottom-color: var(--border);
   }
 
   /* 侧边栏 */
@@ -65,12 +36,13 @@
     border-color: rgba(255, 255, 255, 0.1);
   }
 
+  /* OmniMail 风格：纯色卡片，去除渐变 */
   :root.dark .generate-card {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+    background: rgba(99, 102, 241, 0.06);
   }
 
   :root.dark .inbox-card {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(6, 182, 212, 0.04));
+    background: rgba(30, 41, 59, 0.85);
   }
 
   /* 输入框 */
@@ -164,7 +136,7 @@
   }
 
   :root.dark .modal-body {
-    background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%);
+    background: transparent;
   }
 
   /* 表单 */
@@ -217,9 +189,9 @@
     color: #a5b4fc;
   }
 
-  /* 角色徽章 */
+  /* 角色徽章（OmniMail 风格：纯色，去除渐变） */
   :root.dark .role-user {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.8));
+    background: rgba(30, 41, 59, 0.9);
     border-color: #475569;
     color: #e2e8f0;
   }

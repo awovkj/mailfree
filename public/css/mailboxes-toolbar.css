@@ -134,7 +134,7 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
   border-color: rgba(99, 102, 241, 0.3);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 /* 置顶指示器（包含置顶、收藏、转发图标） */
@@ -261,7 +261,7 @@
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+  background: rgba(59, 130, 246, 0.1);
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
   color: #3b82f6;
@@ -315,7 +315,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  background: rgba(99, 102, 241, 0.1);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -335,7 +335,7 @@
 }
 
 .list-actions .btn.active {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: #10b981;
   border-color: #10b981;
   color: white;
   box-shadow: 

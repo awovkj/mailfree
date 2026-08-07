@@ -1,36 +1,32 @@
 /* =============================================
-   Freemail 登录页美化主题
+   Freemail 登录页
+   OmniMail 风格：中性背景 + 单色强调 + 柔和阴影
    ============================================= */
 
 :root{
-  --surface: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 25%, #f8fafc 50%, #fff1f2 75%, #fef3e8 100%);
-  --surface-overlay: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.95) 100%);
-  --card: rgba(255, 255, 255, 0.75);
-  --card-shadow: rgba(255, 255, 255, 0.2);
-  --card-glass: rgba(255, 255, 255, 0.5);
-  --muted: #64748b;
+  --surface: #f5f5f7;
+  --card: #ffffff;
+  --card-glass: rgba(255, 255, 255, 0.92);
+  --muted: #626268;
   --primary: #6366f1;
   --primary-hover: #4f46e5;
   --primary-active: #4338ca;
-  --primary-light: rgba(99, 102, 241, 0.12);
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-  --border: #e2e8f0;
-  --border-light: #f1f5f9;
-  --border-glass: rgba(255, 255, 255, 0.35);
-  --text: #0f172a;
-  --text-light: #334155;
-  --danger: #ef4444;
-  --danger-light: rgba(239, 68, 68, 0.12);
-  --success: #10b981;
-  --radius: 24px;
-  --radius-sm: 14px;
-  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-  --shadow-glass: 0 8px 32px rgba(99, 102, 241, 0.12);
-  --shadow-glow: 0 0 60px rgba(99, 102, 241, 0.15);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --primary-light: rgba(99, 102, 241, 0.1);
+  --border: rgba(29, 29, 31, 0.1);
+  --border-glass: rgba(29, 29, 31, 0.08);
+  --text: #1d1d1f;
+  --text-light: #3a3a40;
+  --danger: #c9342f;
+  --danger-light: rgba(201, 52, 47, 0.1);
+  --success: #178342;
+  --radius: 20px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 34px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 12px 34px rgba(0, 0, 0, 0.07), 0 26px 80px rgba(0, 0, 0, 0.08);
+  --shadow-button: 0 8px 20px rgba(99, 102, 241, 0.15);
+  --shadow-button-hover: 0 11px 27px rgba(99, 102, 241, 0.24);
+  --transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 * {
@@ -70,8 +66,7 @@ html, body {
 body {
   margin: 0;
   background: var(--surface);
-  background-attachment: fixed;
-  font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "DM Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -79,47 +74,17 @@ body {
   overflow: hidden;
 }
 
+/* OmniMail 风格：单色柔和光晕，去除多色渐变与动画 */
 body::before {
   content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: 
-    radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 40%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
-  animation: backgroundShift 20s ease-in-out infinite alternate;
-  z-index: -1;
-}
-
-body::after {
-  content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(99, 102, 241, 0.08), transparent),
-    radial-gradient(ellipse 80% 50% at 0% 100%, rgba(236, 72, 153, 0.06), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(16, 185, 129, 0.06), transparent);
+  background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.06), transparent 32rem);
   z-index: -1;
-  animation: backgroundPulse 10s ease-in-out infinite alternate;
   pointer-events: none;
-}
-
-@keyframes backgroundShift {
-  0% { transform: translateX(-30px) translateY(-20px) rotate(0deg) scale(1); }
-  50% { transform: translateX(20px) translateY(15px) rotate(0.5deg) scale(1.03); }
-  100% { transform: translateX(30px) translateY(20px) rotate(-0.5deg) scale(1.05); }
-}
-
-@keyframes backgroundPulse {
-  0% { opacity: 0.7; }
-  100% { opacity: 1; }
 }
 
 .center {
@@ -132,106 +97,65 @@ body::after {
   z-index: 1;
 }
 
+/* OmniMail 风格：纯净卡片，去除渐变装饰条与光晕 */
 .card {
   width: min(90vw, 440px);
   background: var(--card);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
   border-radius: var(--radius);
   padding: 48px 44px;
-  border: 1px solid var(--border-glass);
-  box-shadow: var(--shadow-glass), var(--shadow-glow);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
   text-align: center;
   position: relative;
   overflow: hidden;
-  animation: cardSlideIn 0.7s var(--spring);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--primary-gradient);
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
-  pointer-events: none;
+  animation: cardSlideIn 0.5s var(--ease-out-expo);
 }
 
 @keyframes cardSlideIn {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.9);
-    filter: blur(8px);
+    transform: translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
+/* OmniMail 风格：静态 logo，去除浮动动画 */
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  animation: logoFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 8px 16px rgba(99, 102, 241, 0.25));
   position: relative;
   z-index: 1;
 }
 
 .logo svg {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   color: var(--primary);
   stroke: currentColor;
-  transition: transform 0.3s ease;
+  transition: transform 200ms ease;
 }
 
 .logo:hover svg {
-  transform: rotate(-10deg) scale(1.1);
+  transform: scale(1.05);
 }
 
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-  25% { transform: translateY(-6px) rotate(-2deg) scale(1.02); }
-  50% { transform: translateY(-12px) rotate(0deg) scale(1.05); }
-  75% { transform: translateY(-6px) rotate(2deg) scale(1.02); }
-}
-
+/* OmniMail 风格：纯色标题，去除渐变文字与流光动画 */
 h1 {
-  font-size: 30px;
-  font-weight: 800;
+  font-size: 28px;
+  font-weight: 700;
   margin: 0 0 32px 0;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.03em;
-  background-size: 200% 200%;
-  animation: gradientFlow 4s ease infinite;
+  color: var(--text);
+  letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
 }
 
-@keyframes gradientFlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
+/* OmniMail 风格：纯色错误提示，去除渐变与抖动动画 */
 .err {
   color: var(--danger);
   min-height: 24px;
@@ -240,58 +164,42 @@ h1 {
   font-size: 14px;
   padding: 12px 18px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(248, 113, 113, 0.08));
-  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: var(--danger-light);
+  border: 1px solid rgba(201, 52, 47, 0.2);
   display: none;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
   position: relative;
   z-index: 1;
 }
 
 .err:not(:empty) {
   display: block;
-  animation: errorShake 0.5s var(--spring);
-}
-
-@keyframes errorShake {
-  0%, 100% { transform: translateX(0); }
-  15% { transform: translateX(-6px) rotate(-0.5deg); }
-  30% { transform: translateX(5px) rotate(0.5deg); }
-  45% { transform: translateX(-4px) rotate(-0.3deg); }
-  60% { transform: translateX(3px) rotate(0.3deg); }
-  75% { transform: translateX(-2px); }
 }
 
 .input {
   width: 100%;
   padding: 16px 20px;
-  border: 1.5px solid var(--border-glass);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   margin-bottom: 20px;
-  background: var(--card-glass);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--surface);
   font-size: 16px;
-  transition: all 0.25s var(--ease-out-expo);
+  transition: var(--transition);
   font-weight: 500;
   color: var(--text);
   position: relative;
   z-index: 1;
 }
 
+/* OmniMail 风格：聚焦时仅变更边框与阴影，去除位移 */
 .input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--primary-light), 0 4px 16px rgba(99, 102, 241, 0.15);
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 0 0 4px var(--primary-light);
+  background: #ffffff;
 }
 
 .input:hover:not(:focus) {
-  border-color: var(--border);
-  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(29, 29, 31, 0.17);
 }
 
 .input::placeholder {
@@ -299,69 +207,42 @@ h1 {
   font-weight: 400;
 }
 
+/* OmniMail 风格：纯色按钮，去除渐变与光泽扫光 */
 .btn {
   width: 100%;
   padding: 16px 24px;
   border: none;
   border-radius: var(--radius-sm);
-  background: var(--primary-gradient);
+  background: var(--primary);
   color: #fff;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.01em;
-  transition: all 0.25s var(--ease-out-expo);
+  transition: var(--transition);
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transition: left 0.5s var(--ease-out-expo);
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.btn:hover::before {
-  left: 100%;
+  box-shadow: var(--shadow-button);
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, #7c3aed 50%, #a855f7 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: var(--primary-hover);
+  box-shadow: var(--shadow-button-hover);
 }
 
 .btn:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+  background: var(--primary-active);
   transition-duration: 0.1s;
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  box-shadow: none;
 }
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.4), 0 0 0 3px rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-button-hover), 0 0 0 3px rgba(99, 102, 241, 0.3);
 }
 
 /* ===== 主题切换按钮 ===== */
@@ -372,22 +253,20 @@ h1 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--card);
+  border: 1px solid var(--border);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
   z-index: 100;
 }
 
 .theme-toggle-login:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.3);
-  background: #6366f1;
-  border-color: #6366f1;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .theme-toggle-login:hover svg {
@@ -395,8 +274,8 @@ h1 {
 }
 
 .theme-toggle-login svg {
-  color: #6366f1;
-  transition: color 0.3s ease;
+  color: var(--primary);
+  transition: color 200ms ease;
 }
 
 /* 暗黑模式 */
@@ -406,6 +285,6 @@ h1 {
 }
 
 :root.dark .theme-toggle-login:hover {
-  background: #6366f1;
-  border-color: #6366f1;
+  background: var(--primary);
+  border-color: var(--primary);
 }

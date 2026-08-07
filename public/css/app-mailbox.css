@@ -39,9 +39,7 @@
 
 .mailbox-item.pinned{
   position: relative;
-  background: linear-gradient(135deg, 
-    rgba(251, 191, 36, 0.12) 0%, 
-    rgba(245, 158, 11, 0.08) 100%);
+  background: rgba(251, 191, 36, 0.12);
   border-left: 3px solid var(--warning);
   border-color: rgba(245, 158, 11, 0.25);
   box-shadow: 
@@ -54,9 +52,7 @@
 }
 
 .mailbox-item.pinned:hover{
-  background: linear-gradient(135deg, 
-    rgba(251, 191, 36, 0.18) 0%, 
-    rgba(245, 158, 11, 0.12) 100%);
+  background: rgba(251, 191, 36, 0.18);
   border-left-color: var(--warning-hover);
   box-shadow: 
     var(--shadow),
@@ -149,7 +145,7 @@
 
 /* 选中邮箱高亮效果 */
 .mailbox-item.selected{
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.05) 100%);
+  background: rgba(99, 102, 241, 0.08);
   border: 1px solid rgba(99, 102, 241, 0.25);
   border-left: 3px solid var(--primary);
   box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
@@ -181,17 +177,14 @@
 }
 
 .mailbox-item.selected:hover{
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.08) 100%);
+  background: rgba(99, 102, 241, 0.12);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
   transform: translateX(4px);
 }
 
 /* 同时置顶和选中的邮箱项 */
 .mailbox-item.pinned.selected{
-  background: linear-gradient(135deg,
-    rgba(99, 102, 241, 0.06) 0%,
-    rgba(251, 191, 36, 0.03) 50%,
-    rgba(139, 92, 246, 0.04) 100%);
+  background: rgba(99, 102, 241, 0.06);
   border: 1px solid rgba(99, 102, 241, 0.2);
   border-left: 3px solid var(--primary);
 }
@@ -286,7 +279,7 @@
   left: 0;
   right: 0;
   height: 60px;
-  background: linear-gradient(180deg, var(--primary-glass) 0%, transparent 100%);
+  background: var(--primary-glass);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -368,73 +361,58 @@
   color: var(--text);
 }
 
-/* ===== 增强邮箱显示区域 ===== */
+/* ===== 邮箱显示区域（OmniMail 风格：纯净表面） ===== */
 .email-display{
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.8));
-  border: 2px dashed var(--border);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 20px;
-  font-family: 'SF Mono', 'JetBrains Mono', 'Monaco', 'Fira Code', monospace;
-  font-size: 16px;
+  font-family: var(--font-mono);
+  font-size: 15px;
   font-weight: 600;
   text-align: center;
-  color: var(--text-muted);
-  transition: all 0.3s var(--ease-out-expo);
+  color: var(--text-secondary);
+  transition: background 180ms ease, border-color 180ms ease;
   position: relative;
   overflow: hidden;
   min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: var(--blur-sm);
-  -webkit-backdrop-filter: var(--blur-sm);
 }
 
-.custom-overlay{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:12px; background: rgba(255,255,255,0.75); backdrop-filter: blur(2px); padding:12px; }
-.custom-input{ min-width:280px; height:44px; padding:10px 14px; border:1px solid var(--border-glass); border-radius: var(--radius-sm); background: var(--card-glass); box-shadow: var(--shadow-glass); font-size:14px; }
-.custom-input::placeholder{ color: var(--muted2); }
-.custom-input:focus{ outline:none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59,130,246,0.15); background:#fff; }
+.custom-overlay{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:12px; background: var(--card-glass); backdrop-filter: var(--blur-sm); -webkit-backdrop-filter: var(--blur-sm); padding:12px; }
+.custom-input{ min-width:280px; height:44px; padding:10px 14px; border:1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-muted); font-size:14px; color: var(--text); }
+.custom-input::placeholder{ color: var(--text-tertiary); }
+.custom-input:focus{ outline:none; border-color: var(--border-strong); box-shadow: 0 0 0 4px var(--primary-glass); background: var(--surface); }
 /* 覆盖层内"创建"按钮：强制水平/垂直居中 */
 .custom-overlay .btn{ height:44px; padding:0 16px; justify-content:center; align-items:center; }
 
 /* 让切换自定义按钮与随机按钮同样大小 */
 .generate-action{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-.generate-action .btn{ height:52px; padding:0 20px; font-size:16px; border-radius: var(--radius-sm); flex:1 1 220px; justify-content:center; text-align:center; }
+.generate-action .btn{ min-height:48px; padding:0 20px; font-size:15px; border-radius: var(--radius-full); flex:1 1 220px; justify-content:center; text-align:center; }
 
 .email-display.has-email{
-  border-style: solid;
   border-color: var(--primary);
-  border-width: 2px;
-  background: var(--primary-gradient-soft);
+  background: var(--primary-glass);
   color: var(--primary);
   font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.02em;
-  animation: emailGenerated 0.6s var(--spring);
-  box-shadow: var(--shadow), 0 0 20px var(--primary-glass);
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-sm);
 }
 
 .email-display.has-email::before{
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 30%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
-  animation: emailShine 2s ease-in-out infinite;
-}
-
-@keyframes emailShine {
-  0%, 100% { opacity: 0; transform: translateX(-100%); }
-  50% { opacity: 1; transform: translateX(100%); }
+  content: none;
 }
 
 @keyframes emailGenerated {
-  0% { 
-    transform: scale(0.92);
+  0% {
+    transform: scale(0.96);
     opacity: 0;
-    box-shadow: none;
   }
-  50% { 
-    transform: scale(1.03);
+  50% {
+    transform: scale(1.01);
     border-color: var(--success);
     box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
   }
@@ -581,45 +559,34 @@ select:disabled{
   margin-top: auto;
 }
 
+/* 生成按钮（OmniMail 风格：纯色、克制 hover） */
 .btn-generate{
   width: 100%;
-  height: 52px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 249, 0.9) 100%);
-  border: 1px solid rgba(203, 213, 225, 0.7);
-  font-size: 16px;
-  font-weight: 700;
+  min-height: 48px;
+  background: var(--primary);
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 600;
   padding: 0 24px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.15);
   justify-content: center;
-  color: var(--text);
+  color: var(--text-inverse);
+  border-radius: var(--radius-full);
 }
 
 .btn-generate:hover{
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(241, 245, 249, 0.95) 100%);
-  border-color: rgba(148, 163, 184, 0.6);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  background: var(--primary-hover);
+  border-color: transparent;
+  box-shadow: 0 11px 27px rgba(var(--primary-rgb), 0.24);
 }
 
 .btn-generate:disabled{
-  opacity: 0.7;
-  transform: none;
+  opacity: 0.42;
   cursor: not-allowed;
 }
 
+/* OmniMail 风格：去除 email-display 的 shimmer 装饰动画 */
 .email-display::before{
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.05), transparent);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  content: none;
 }
 

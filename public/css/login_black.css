@@ -3,8 +3,8 @@
    ============================================= */
 
 :root.dark {
-  /* 登录页面背景 */
-  --login-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #1e293b 50%, #18181b 75%, #1c1917 100%);
+  /* OmniMail 风格：纯净中性背景 */
+  --login-bg: var(--surface-bg);
   --login-card-bg: rgba(30, 41, 59, 0.85);
   --login-border: rgba(255, 255, 255, 0.1);
 }
@@ -13,11 +13,9 @@
   background: var(--login-bg);
 }
 
+/* OmniMail 风格：单色柔和光晕，去除多色渐变 */
 :root.dark body::before {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.2), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(236, 72, 153, 0.15), transparent),
-    radial-gradient(ellipse 50% 60% at 0% 80%, rgba(16, 185, 129, 0.15), transparent);
+  background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
 }
 
 /* 登录卡片 */
@@ -95,16 +93,16 @@
   color: #a5b4fc;
 }
 
+/* OmniMail 风格：纯色主按钮，去除渐变 */
 :root.dark .btn-primary {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  background: var(--primary);
   color: white;
   border: none;
 }
 
 :root.dark .btn-primary:hover {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  background: var(--primary-hover);
+  box-shadow: var(--shadow-button);
 }
 
 :root.dark .btn-secondary {

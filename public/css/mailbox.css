@@ -5,8 +5,8 @@
 
 /* 增强基础变量 */
 :root {
-  --surface: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 25%, #f8fafc 50%, #fff1f2 75%, #fef3e8 100%);
-  --surface-overlay: linear-gradient(135deg, rgba(248, 250, 252, 0.85) 0%, rgba(241, 245, 249, 0.92) 100%);
+  --surface: #f5f5f7;
+  --surface-overlay: rgba(248, 250, 252, 0.85);
   --card: rgba(255, 255, 255, 0.88);
   --card-hover: rgba(255, 255, 255, 0.96);
   --card-glass: rgba(255, 255, 255, 0.65);
@@ -17,7 +17,7 @@
   --primary-hover: #4f46e5;
   --primary-light: rgba(99, 102, 241, 0.12);
   --primary-glass: rgba(99, 102, 241, 0.06);
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+  --primary-gradient: #6366f1;
   --danger: #ef4444;
   --danger-hover: #dc2626;
   --success: #10b981;
@@ -51,7 +51,7 @@
 }
 
 body {
-  font-family: 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "DM Sans", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--surface);
   background-attachment: fixed;
   color: var(--text);
@@ -538,7 +538,7 @@ body {
   gap: 8px;
   padding: 12px 16px;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.08) 100%);
+  background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.2);
   border-radius: var(--radius-sm);
   color: #b45309;
