@@ -3,7 +3,7 @@
  * @module db
  */
 
-export { initDatabase, setupDatabase } from './init.js';
+export { initDatabase } from './init.js';
 export { getDatabaseWithValidation, getInitializedDatabase } from './connection.js';
 export {
   getOrCreateMailboxId,

@@ -11,7 +11,6 @@ export {
   buildSessionCookie,
   verifyMailboxLogin,
   verifyPassword,
-  hashPassword,
   verifyJwtWithCache,
   checkRootAdminOverride,
   resolveAuthPayload,

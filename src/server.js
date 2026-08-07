@@ -10,7 +10,7 @@
  * @module server
  */
 
-import { initDatabase, getInitializedDatabase } from './db/index.js';
+import { getInitializedDatabase, getOrCreateMailboxId } from './db/index.js';
 import { createRouter, authMiddleware } from './routes/index.js';
 import { createAssetManager } from './assets/index.js';
 import { extractEmail, normalizeEmailAlias } from './utils/common.js';
@@ -159,20 +159,8 @@ export default {
         verificationCode = extractVerificationCode({ subject, text: textContent, html: htmlContent });
       } catch (_) { }
 
-      // 存储到数据库
-      const resMb = await DB.prepare('SELECT id FROM mailboxes WHERE address = ?').bind(mailbox.toLowerCase()).all();
-      let mailboxId;
-      if (Array.isArray(resMb?.results) && resMb.results.length) {
-        mailboxId = resMb.results[0].id;
-      } else {
-        const [localPartMb, domain] = (mailbox || '').toLowerCase().split('@');
-        if (localPartMb && domain) {
-          await DB.prepare('INSERT INTO mailboxes (address, local_part, domain, password_hash, last_accessed_at) VALUES (?, ?, ?, NULL, CURRENT_TIMESTAMP)')
-            .bind((mailbox || '').toLowerCase(), localPartMb, domain).run();
-          const created = await DB.prepare('SELECT id FROM mailboxes WHERE address = ?').bind((mailbox || '').toLowerCase()).all();
-          mailboxId = created?.results?.[0]?.id;
-        }
-      }
+      // 存储到数据库（复用统一的邮箱获取/创建逻辑，命中缓存时减少 DB 往返）
+      const mailboxId = await getOrCreateMailboxId(DB, mailbox);
       if (!mailboxId) throw new Error('无法解析或创建 mailbox 记录');
 
       // 解析收件人列表

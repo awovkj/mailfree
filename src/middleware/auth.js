@@ -3,10 +3,18 @@
  * @module middleware/auth
  */
 
+import { verifyPassword } from '../utils/common.js';
+
+export { verifyPassword };
+
 export const COOKIE_NAME = 'iding-session';
 
 // 默认会话过期时间（天）
 const DEFAULT_SESSION_EXPIRE_DAYS = 7;
+
+// JWT 缓存最近一次清理时间，避免每次校验都全量扫描缓存
+const JWT_CACHE_CLEANUP_INTERVAL = 5 * 60 * 1000;
+let _jwtCacheLastCleanup = 0;
 
 /**
  * 获取会话过期秒数
@@ -148,42 +156,6 @@ export async function verifyMailboxLogin(emailAddress, password, DB) {
   }
 }
 
-/**
- * SHA256哈希函数
- */
-async function sha256Hex(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-/**
- * 验证密码
- * @param {string} rawPassword - 原始密码
- * @param {string} hashed - 哈希密码
- * @returns {Promise<boolean>} 验证结果
- */
-export async function verifyPassword(rawPassword, hashed) {
-  if (!hashed) return false;
-  try {
-    const hex = (await sha256Hex(rawPassword)).toLowerCase();
-    return hex === String(hashed || '').toLowerCase();
-  } catch (_) {
-    return false;
-  }
-}
-
-/**
- * 生成密码哈希
- * @param {string} password - 原始密码
- * @returns {Promise<string>} 哈希后的密码
- */
-export async function hashPassword(password) {
-  return await sha256Hex(password);
-}
-
 function base64UrlEncode(data) {
   const s = typeof data === 'string' ? data : String.fromCharCode(...(data instanceof Uint8Array ? data : new Uint8Array()));
   return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+/g, '');
@@ -200,6 +172,10 @@ function base64UrlDecode(str) {
 
 /**
  * 带缓存的JWT验证函数
+ *
+ * 缓存清理采用时间窗口策略：每隔一段时间才执行一次全量过期清理，
+ * 避免每次校验都遍历整个缓存表。
+ *
  * @param {string} JWT_TOKEN - JWT密钥
  * @param {string} cookieHeader - Cookie头
  * @returns {Promise<boolean|object>} 验证结果
@@ -207,28 +183,31 @@ function base64UrlDecode(str) {
 export async function verifyJwtWithCache(JWT_TOKEN, cookieHeader) {
   const token = (cookieHeader.split(';').find(s => s.trim().startsWith('iding-session=')) || '').split('=')[1] || '';
   if (!globalThis.__JWT_CACHE__) globalThis.__JWT_CACHE__ = new Map();
+  const cache = globalThis.__JWT_CACHE__;
 
   const now = Date.now();
-  for (const [key, value] of globalThis.__JWT_CACHE__.entries()) {
-    if (value.exp <= now) {
-      globalThis.__JWT_CACHE__.delete(key);
+  // 时间窗口内仅做一次过期清理，降低每次校验的开销
+  if (now - _jwtCacheLastCleanup > JWT_CACHE_CLEANUP_INTERVAL) {
+    for (const [key, value] of cache.entries()) {
+      if (value.exp <= now) cache.delete(key);
     }
+    _jwtCacheLastCleanup = now;
   }
 
   let payload = false;
-  if (token && globalThis.__JWT_CACHE__.has(token)) {
-    const cached = globalThis.__JWT_CACHE__.get(token);
+  if (token && cache.has(token)) {
+    const cached = cache.get(token);
     if (cached.exp > now) {
       payload = cached.payload;
     } else {
-      globalThis.__JWT_CACHE__.delete(token);
+      cache.delete(token);
     }
   }
 
   if (!payload) {
     payload = JWT_TOKEN ? await verifyJwt(JWT_TOKEN, cookieHeader) : false;
     if (token && payload) {
-      globalThis.__JWT_CACHE__.set(token, { payload, exp: now + 30 * 60 * 1000 });
+      cache.set(token, { payload, exp: now + 30 * 60 * 1000 });
     }
   }
 

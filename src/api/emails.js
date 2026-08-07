@@ -46,30 +46,15 @@ export async function handleEmailsApi(request, db, url, path, options) {
       }
       
       const limit = Math.min(parseInt(url.searchParams.get('limit') || '20', 10), 50);
-      
-      try {
-        const { results } = await db.prepare(`
-          SELECT id, sender, to_addrs, subject, received_at, is_read, preview, verification_code
-          FROM messages 
-          WHERE mailbox_id = ?${timeFilter}
-          ORDER BY received_at DESC 
-          LIMIT ?
-        `).bind(mailboxId, ...timeParam, limit).all();
-        return Response.json(results);
-      } catch (e) {
-        const { results } = await db.prepare(`
-          SELECT id, sender, to_addrs, subject, received_at, is_read,
-                 CASE WHEN content IS NOT NULL AND content <> ''
-                      THEN SUBSTR(content, 1, 120)
-                      ELSE SUBSTR(COALESCE(html_content, ''), 1, 120)
-                 END AS preview
-          FROM messages 
-          WHERE mailbox_id = ?${timeFilter}
-          ORDER BY received_at DESC 
-          LIMIT ?
-        `).bind(mailboxId, ...timeParam, limit).all();
-        return Response.json(results);
-      }
+
+      const { results } = await db.prepare(`
+        SELECT id, sender, to_addrs, subject, received_at, is_read, preview, verification_code
+        FROM messages
+        WHERE mailbox_id = ?${timeFilter}
+        ORDER BY received_at DESC
+        LIMIT ?
+      `).bind(mailboxId, ...timeParam, limit).all();
+      return Response.json(results);
     } catch (e) {
       console.error('查询邮件失败:', e);
       return errorResponse('查询邮件失败', 500);
@@ -102,19 +87,11 @@ export async function handleEmailsApi(request, db, url, path, options) {
       }
       
       const placeholders = ids.map(() => '?').join(',');
-      try {
-        const { results } = await db.prepare(`
-          SELECT id, sender, to_addrs, subject, verification_code, preview, r2_bucket, r2_object_key, received_at, is_read
-          FROM messages WHERE id IN (${placeholders})${timeFilter}
-        `).bind(...ids, ...timeParam).all();
-        return Response.json(results || []);
-      } catch (e) {
-        const { results } = await db.prepare(`
-          SELECT id, sender, to_addrs, subject, content, html_content, received_at, is_read
-          FROM messages WHERE id IN (${placeholders})${timeFilter}
-        `).bind(...ids, ...timeParam).all();
-        return Response.json(results || []);
-      }
+      const { results } = await db.prepare(`
+        SELECT id, sender, to_addrs, subject, verification_code, preview, r2_bucket, r2_object_key, received_at, is_read
+        FROM messages WHERE id IN (${placeholders})${timeFilter}
+      `).bind(...ids, ...timeParam).all();
+      return Response.json(results || []);
     } catch (e) {
       return errorResponse('批量查询失败', 500);
     }
@@ -208,7 +185,7 @@ export async function handleEmailsApi(request, db, url, path, options) {
       const row = results[0];
       let content = '';
       let html_content = '';
-      
+
       try {
         if (row.r2_object_key && r2) {
           const obj = await r2.get(row.r2_object_key);
@@ -224,24 +201,10 @@ export async function handleEmailsApi(request, db, url, path, options) {
         }
       } catch (_) { }
 
-      if ((!content && !html_content)) {
-        try {
-          const fallback = await db.prepare('SELECT content, html_content FROM messages WHERE id = ?').bind(emailId).all();
-          const fr = (fallback?.results || [])[0] || {};
-          content = content || fr.content || '';
-          html_content = html_content || fr.html_content || '';
-        } catch (_) { }
-      }
-
       return Response.json({ ...row, content, html_content, download: row.r2_object_key ? `/api/email/${emailId}/download` : '' });
     } catch (e) {
-      const { results } = await db.prepare(`
-        SELECT id, sender, to_addrs, subject, content, html_content, received_at, is_read
-        FROM messages WHERE id = ?
-      `).bind(emailId).all();
-      if (!results || !results.length) return errorResponse('未找到邮件', 404);
-      await db.prepare(`UPDATE messages SET is_read = 1 WHERE id = ?`).bind(emailId).run();
-      return Response.json(results[0]);
+      console.error('获取邮件详情失败:', e);
+      return errorResponse('获取邮件详情失败', 500);
     }
   }
 

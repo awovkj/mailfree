@@ -206,7 +206,6 @@ export function createRouter() {
       return new Response('数据库连接失败', { status: 500 });
     }
 
-    const { handleEmailReceive } = await import('../email/receiver.js');
     return handleEmailReceive(request, DB, env);
   });
 

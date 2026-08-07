@@ -99,5 +99,8 @@ Thumbs.db
 /asset/bookmarks_2025_9_5_2.html
 /asset/bookmarks_2025_9_5.html
 
+# 本地部署配置（含真实凭证，请勿提交；仓库仅保留 wrangler.toml.example 模板）
+wrangler.toml
+
 eml
 task_plan.md

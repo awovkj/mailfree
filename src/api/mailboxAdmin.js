@@ -6,6 +6,7 @@
 import { getJwtPayload, isStrictAdmin, sha256Hex, errorResponse } from './helpers.js';
 import { invalidateMailboxCache, invalidateSystemStatCache } from '../utils/cache.js';
 import { getMailboxIdByAddress } from '../db/index.js';
+import { verifyPassword } from '../utils/common.js';
 import {
   handleSetForward,
   handleToggleFavorite,
@@ -327,7 +328,6 @@ export async function handleMailboxAdminApi(request, db, url, path, options) {
       let currentPasswordValid = false;
 
       if (mailbox.password_hash) {
-        const { verifyPassword } = await import('../utils/common.js');
         currentPasswordValid = await verifyPassword(currentPassword, mailbox.password_hash);
       } else {
         currentPasswordValid = (currentPassword === mailboxAddress);
