@@ -1,12 +1,12 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// 构建产物输出到仓库根目录的 public/，由 Cloudflare Workers Assets 直接托管。
-// emptyOutDir 保持 false，避免误删 public/pic 等文档资源。
+// 构建产物直接输出到 frontend/ 根目录：Cloudflare Pages 将本目录作为静态输出托管。
+// emptyOutDir 必须为 false —— 输出目录就是源码目录，绝不能清空（旧哈希产物由 scripts/build.mjs 清理）。
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: '../public',
+    outDir: '.',
     emptyOutDir: false,
     target: 'es2022',
   },

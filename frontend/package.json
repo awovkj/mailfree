@@ -5,8 +5,8 @@
   "type": "module",
   "description": "Mailfree frontend — React + Vite, UI fully referenced from OmniMail.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/build.mjs --template-only && vite",
+    "build": "node scripts/build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
