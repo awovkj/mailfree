@@ -179,7 +179,7 @@ export function renderEmailItem(email, isMobile = false) {
       <div class="email-content">
         <div class="email-main">
           <div class="email-line"><span class="label-chip">主题</span><span class="value-text subject">${subjectText}</span></div>
-          <div class="email-line"><span class="label-chip">内容</span>${hasContent ? `<span class="email-preview value-text">${previewText}</span>` : '<span class="email-preview value-text" style="color:#94a3b8">(暂无预览)</span>'}</div>
+          <div class="email-line"><span class="label-chip">内容</span>${hasContent ? `<span class="email-preview value-text">${previewText}</span>` : '<span class="email-preview value-text" style="color:#999999">(暂无预览)</span>'}</div>
         </div>
         <div class="email-actions">
           ${isSentView ? `

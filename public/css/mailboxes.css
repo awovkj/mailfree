@@ -69,7 +69,7 @@
 .mailbox-card:hover {
   transform: translateY(-4px) scale(1.01);
   box-shadow: none;
-  border-color: rgba(29, 29, 31, 0.25);
+  border-color: rgba(26, 26, 26, 0.25);
   background: rgba(255, 255, 255, 0.95);
 }
 
@@ -85,7 +85,7 @@
 }
 
 .mailbox-card .line{ 
-  color:#475569; 
+  color:#4d4d4d; 
   font-size:12px; 
   white-space: nowrap; 
   overflow: hidden; 
@@ -131,9 +131,9 @@
   word-break: break-all;
   white-space: normal;
 }
-.mailbox-card .pwd{ color:#64748b; }
-.mailbox-card .login{ color:#64748b; }
-.mailbox-card .time{ color:#64748b; }
+.mailbox-card .pwd{ color:#666666; }
+.mailbox-card .login{ color:#666666; }
+.mailbox-card .time{ color:#666666; }
 
 /* 置顶标识 - 右上角显示 */
 .mailbox-card .pin-badge {
@@ -269,7 +269,7 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  color: #475569;
+  color: #4d4d4d;
 }
 
 .mailbox-card .actions .btn-icon::before {
@@ -279,14 +279,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(29, 29, 31, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .mailbox-card .actions .btn-icon:hover{ 
-  background: rgba(29, 29, 31, 0.1);
-  border-color: rgba(29, 29, 31, 0.3); 
+  background: rgba(26, 26, 26, 0.1);
+  border-color: rgba(26, 26, 26, 0.3); 
   transform: scale(1.1) translateY(-1px);
   box-shadow: none;
   color: #000000;
@@ -334,7 +334,7 @@
 .page-mailboxes .pager #page {
   min-width: 120px;
   text-align: center;
-  color: #64748b;
+  color: #666666;
   font-size: 14px;
   font-weight: 500;
 }
@@ -676,7 +676,7 @@
   gap: 10px;
   font-weight: 600;
   font-size: 16px;
-  color: #1e293b;
+  color: #1a1a1a;
 }
 
 .modal-icon {
@@ -704,7 +704,7 @@
   background: rgba(248, 250, 252, 0.8);
   border: 1px solid rgba(226, 232, 240, 0.6);
   font-size: 18px;
-  color: #64748b;
+  color: #666666;
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
@@ -746,13 +746,13 @@
 .modal-body .btn-secondary {
   background: rgba(248, 250, 252, 0.9);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  color: #475569;
+  color: #4d4d4d;
 }
 
 .modal-body .btn-secondary:hover {
   background: rgba(241, 245, 249, 1);
   border-color: rgba(203, 213, 225, 1);
-  color: #334155;
+  color: #333333;
   transform: translateY(-1px);
   box-shadow: none;
 }
@@ -787,7 +787,7 @@
 
 .modal-desc {
   margin: 0 0 12px 0;
-  color: #475569;
+  color: #4d4d4d;
   line-height: 1.6;
 }
 
@@ -801,13 +801,13 @@
 }
 
 .modal-info-label {
-  color: #475569;
+  color: #4d4d4d;
   font-size: 12px;
 }
 
 .modal-email-value {
   font-weight: 700;
-  color: #111827;
+  color: #111111;
   word-break: break-all;
 }
 
@@ -833,14 +833,14 @@
 .form-hint {
   margin-top: 8px;
   font-size: 12px;
-  color: #64748b;
+  color: #666666;
 }
 
 .show-password-label {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #64748b;
+  color: #666666;
   font-size: 12px;
   cursor: pointer;
 }
@@ -886,7 +886,7 @@
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   background: transparent;
-  color: #64748b;
+  color: #666666;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -900,7 +900,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(29, 29, 31, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -918,7 +918,7 @@
 
 .view-toggle .btn:not(.active):hover {
   color: #000000;
-  background: rgba(29, 29, 31, 0.1);
+  background: rgba(26, 26, 26, 0.1);
   transform: translateY(-1px);
   box-shadow: none;
 }

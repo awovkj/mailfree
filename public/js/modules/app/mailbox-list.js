@@ -51,7 +51,7 @@ export function renderMailboxList(mailboxes, container) {
   if (!container) return;
   
   if (!mailboxes || mailboxes.length === 0) {
-    container.innerHTML = '<div class="empty-state" style="text-align:center;color:#64748b;padding:20px">暂无邮箱</div>';
+    container.innerHTML = '<div class="empty-state" style="text-align:center;color:#666666;padding:20px">暂无邮箱</div>';
     return;
   }
   

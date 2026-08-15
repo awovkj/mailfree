@@ -344,7 +344,7 @@ export function injectDialogStyles() {
       justify-content: space-between;
       align-items: center;
       padding: 16px 20px;
-      border-bottom: 1px solid var(--border-color, #e5e7eb);
+      border-bottom: 1px solid var(--border-color, #eeeeee);
     }
     .modal-header h3 {
       margin: 0;
@@ -355,12 +355,12 @@ export function injectDialogStyles() {
       border: none;
       font-size: 24px;
       cursor: pointer;
-      color: var(--text-secondary, #6b7280);
+      color: var(--text-secondary, #666666);
       padding: 0;
       line-height: 1;
     }
     .modal-close:hover {
-      color: var(--text-primary, #111827);
+      color: var(--text-primary, #111111);
     }
     .modal-body {
       padding: 20px;
@@ -370,7 +370,7 @@ export function injectDialogStyles() {
       justify-content: flex-end;
       gap: 10px;
       padding: 16px 20px;
-      border-top: 1px solid var(--border-color, #e5e7eb);
+      border-top: 1px solid var(--border-color, #eeeeee);
     }
     .form-group {
       margin-bottom: 15px;
@@ -384,7 +384,7 @@ export function injectDialogStyles() {
     .form-input {
       width: 100%;
       padding: 10px 12px;
-      border: 1px solid var(--border-color, #d1d5db);
+      border: 1px solid var(--border-color, #cccccc);
       border-radius: 8px;
       font-size: 14px;
       transition: border-color 0.2s;
@@ -403,10 +403,10 @@ export function injectDialogStyles() {
       margin-left: 4px;
     }
     .badge-forward {
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(0, 0, 0, 0.08);
     }
     .badge-favorite {
-      background: rgba(245, 158, 11, 0.1);
+      background: rgba(102, 102, 102, 0.1);
     }
     @keyframes modalIn {
       from {

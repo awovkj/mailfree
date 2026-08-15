@@ -53,7 +53,7 @@
   border: 1px solid rgba(226, 232, 240, 0.8);
   border-radius: 8px;
   font-size: 13px;
-  color: #475569;
+  color: #4d4d4d;
   background: rgba(255, 255, 255, 0.95);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -207,7 +207,7 @@
   display: flex;
   gap: 8px;
   font-size: 12px;
-  color: #64748b;
+  color: #666666;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -218,7 +218,7 @@
 
 /* 时间显示 */
 .mailbox-info .meta .meta-time {
-  color: #94a3b8;
+  color: #999999;
   min-width: 130px;
 }
 
@@ -272,7 +272,7 @@
 }
 
 .mailbox-info .meta .meta-forward-empty {
-  color: #cbd5e1;
+  color: #cccccc;
   font-size: 16px;
 }
 
@@ -298,7 +298,7 @@
   border-radius: 8px;
   border: 1px solid rgba(226, 232, 240, 0.6);
   background: rgba(255, 255, 255, 0.8);
-  color: #475569;
+  color: #4d4d4d;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -489,7 +489,7 @@
 /* 邮箱卡片额外样式 */
 .card.mailbox { padding: 12px; }
 .card.mailbox .addr { font-weight: 600; word-break: break-all; }
-.meta { color:#475569; font-size:12px; margin-top:6px }
+.meta { color:#4d4d4d; font-size:12px; margin-top:6px }
 .topbar .nav-actions .btn { margin-left:8px }
 .pager { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:12px }
 

@@ -15,29 +15,20 @@
         background: #ffffff;
         min-height: 100vh; display: flex; align-items: center; justify-content: center; color: #111111; position: relative; overflow-x: hidden;
       }
-      body::before {
-        content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(circle at 50% -20%, rgba(125, 125, 135, 0.11), transparent 32rem);
-        z-index: -1; pointer-events: none;
-      }
-      footer{ position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; color: #8b8b92; font-size: 12px; opacity: .9; pointer-events: none; }
+      footer{ position: fixed; bottom: 10px; left: 0; right: 0; text-align: center; color: #999999; font-size: 12px; pointer-events: none; }
       .loading-container { text-align: center; padding: 2rem; background: #ffffff; border-radius: 8px; border: 1px solid #eeeeee; position: relative; z-index: 1; }
       .logo { font-size: 4rem; margin-bottom: 1rem; color: #000000; }
       .title { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; color: #111111; letter-spacing: -0.02em; }
       .spinner { width: 32px; height: 32px; border: 2px solid #eeeeee; border-top: 2px solid #000000; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
-      .status { font-size: 0.9rem; color: #626268; margin-bottom: 0.5rem; font-weight: 500; }
+      .status { font-size: 0.9rem; color: #666666; margin-bottom: 0.5rem; font-weight: 500; }
       .progress { width: 200px; height: 4px; background: #eeeeee; border-radius: 2px; margin: 0 auto; overflow: hidden; }
       .progress-bar { height: 100%; background: #000000; border-radius: 2px; animation: progress 2s ease-in-out infinite; }
       @keyframes spin { to { transform: rotate(360deg);} }
       @keyframes progress { 0% { width: 0%; } 50% { width: 70%; } 100% { width: 100%; } }
 
-      /* 暗黑模式（纯黑白：黑底白字） */
       :root.dark body {
         background: #000000;
         color: #ffffff;
-      }
-      :root.dark body::before {
-        background: none;
       }
       :root.dark footer {
         color: #666666;

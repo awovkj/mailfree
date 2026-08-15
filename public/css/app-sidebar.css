@@ -1,4 +1,4 @@
-﻿/* ==============================================
+/* ==============================================
    Freemail - 侧边栏样式
    ============================================== */
 
@@ -20,7 +20,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(29, 29, 31, .4) transparent;
+  scrollbar-color: rgba(26, 26, 26, .4) transparent;
   scrollbar-gutter: stable both-edges;
 }
 
@@ -54,7 +54,7 @@
 .sidebar::-webkit-scrollbar-button{ display: none; width: 0; height: 0; }
 .sidebar::-webkit-scrollbar-track{ background: transparent; }
 .sidebar::-webkit-scrollbar-thumb{
-  background: rgba(100,116,139,.35);
+  background: rgba(102,102,102,.35);
   border-radius: 8px;
   border: 2px solid rgba(255,255,255,.5);
 }
