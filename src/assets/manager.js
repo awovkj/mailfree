@@ -50,6 +50,14 @@ export class AssetManager {
       return await this.handleIndexPage(request, env);
     }
 
+    // 哈希命名的构建产物：一年长缓存（_headers 在 Pages 高级模式下不生效，故由此处设置）
+    if (pathname.startsWith('/assets/')) {
+      const resp = await env.ASSETS.fetch(request);
+      const headers = new Headers(resp.headers);
+      headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+      return new Response(resp.body, { status: resp.status, headers });
+    }
+
     return env.ASSETS.fetch(request);
   }
 
