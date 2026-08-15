@@ -1,0 +1,202 @@
+name: 🚀 Deploy freemail to Cloudflare Workers
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  Deploy-freemail:
+    name: 🏗️ Build and Deploy
+    runs-on: ubuntu-latest
+    env:
+      # Worker 名称（需与线上 Worker 一致，自定义域名才能保持绑定）
+      NAME: ${{ secrets.NAME || vars.NAME || 'mailfree' }}
+      # Cloudflare 凭证
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # D1 数据库（未提供 ID 时按名称查找/自动创建）
+      D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID || vars.D1_DATABASE_ID }}
+      D1_DB_NAME: ${{ secrets.D1_DB_NAME || vars.D1_DB_NAME || 'maill_free_db' }}
+      # R2 存储桶名称
+      R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME || vars.R2_BUCKET_NAME || 'mail-eml' }}
+      # 应用环境变量（留空则保留 Worker 在仪表板中已有的变量，见 keep_vars）
+      ADMIN_NAME: ${{ secrets.ADMIN_NAME || vars.ADMIN_NAME }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD || vars.ADMIN_PASSWORD }}
+      GUEST_PASSWORD: ${{ secrets.GUEST_PASSWORD || vars.GUEST_PASSWORD }}
+      JWT_TOKEN: ${{ secrets.JWT_TOKEN || vars.JWT_TOKEN }}
+      JWT_TOKENGUEST_PASSWORD: ${{ secrets.JWT_TOKENGUEST_PASSWORD || vars.JWT_TOKENGUEST_PASSWORD }}
+      SESSION_EXPIRE_DAYS: ${{ secrets.SESSION_EXPIRE_DAYS || vars.SESSION_EXPIRE_DAYS }}
+      MAIL_DOMAIN: ${{ secrets.MAIL_DOMAIN || vars.MAIL_DOMAIN }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY || vars.RESEND_API_KEY }}
+
+    steps:
+      - name: 🚚 检出代码仓库 / Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ 设置 Node.js / Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: 🔐 验证必要变量 / Validate required variables
+        run: |
+          echo "🔐 Validating required environment variables..."
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "❌ 缺少 CLOUDFLARE_API_TOKEN：请在仓库 Settings → Secrets and variables → Actions 中配置。"
+            exit 1
+          fi
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "❌ 缺少 CLOUDFLARE_ACCOUNT_ID：请在仓库 Settings → Secrets and variables → Actions 中配置。"
+            exit 1
+          fi
+          echo "✅ Validation passed."
+
+      - name: 📦 安装 Wrangler / Install Wrangler
+        run: npm install -g wrangler
+
+      - name: 📡 禁用 Wrangler 遥测 / Disable wrangler telemetry
+        run: wrangler telemetry disable
+
+      - name: 🏗️ 构建前端 / Build frontend
+        run: |
+          cd frontend
+          npm ci
+          npm run build
+          echo "✅ Frontend built into public/:"
+          ls -la ../public
+
+      - name: 🛠️ 生成 wrangler 配置 / Generate wrangler config
+        run: |
+          echo "🛠️ Generating deployment wrangler config..."
+          CONFIG_FILE="wrangler-deploy.toml"
+          cat > "$CONFIG_FILE" <<EOF
+          name = "${NAME}"
+          main = "src/server.js"
+          compatibility_date = "2024-01-01"
+          # 部署时不携带 [vars]，保留仪表板中已有的环境变量
+          keep_vars = true
+
+          [[d1_databases]]
+          binding = "TEMP_MAIL_DB"
+          database_name = "${D1_DB_NAME}"
+          database_id = "PLACEHOLDER_D1_ID"
+
+          [assets]
+          directory = "public"
+          binding = "ASSETS"
+
+          [[r2_buckets]]
+          binding = "MAIL_EML"
+          bucket_name = "${R2_BUCKET_NAME}"
+          EOF
+          # 仅当提供了环境变量时才写入 [vars]，避免占位值覆盖线上配置
+          VARS_BLOCK=""
+          add_var() {
+            if [ -n "$2" ]; then
+              VARS_BLOCK="${VARS_BLOCK}$1 = \"$2\"\n"
+            fi
+          }
+          add_var "ADMIN_NAME" "$ADMIN_NAME"
+          add_var "ADMIN_PASSWORD" "$ADMIN_PASSWORD"
+          add_var "GUEST_PASSWORD" "$GUEST_PASSWORD"
+          add_var "JWT_TOKEN" "$JWT_TOKEN"
+          add_var "JWT_TOKENGUEST_PASSWORD" "$JWT_TOKENGUEST_PASSWORD"
+          add_var "SESSION_EXPIRE_DAYS" "$SESSION_EXPIRE_DAYS"
+          add_var "MAIL_DOMAIN" "$MAIL_DOMAIN"
+          add_var "RESEND_API_KEY" "$RESEND_API_KEY"
+          if [ -n "$VARS_BLOCK" ]; then
+            printf '\n[vars]\n' >> "$CONFIG_FILE"
+            printf "$VARS_BLOCK" >> "$CONFIG_FILE"
+          fi
+          echo "✅ Config generated."
+          echo "--- Generated config (sanitized) ---"
+          grep -v "PASSWORD\|JWT_TOKEN\|API_KEY\|RESEND" "$CONFIG_FILE" || true
+
+      - name: 🐬 设置 D1 数据库 / Set up D1 database
+        run: |
+          CONFIG_FILE="wrangler-deploy.toml"
+          if [ -n "$D1_DATABASE_ID" ]; then
+            sed -i "s|PLACEHOLDER_D1_ID|${D1_DATABASE_ID}|g" "$CONFIG_FILE"
+            echo "✅ Using D1 database from environment variable: $D1_DATABASE_ID"
+            exit 0
+          fi
+          echo "🔍 Checking if D1 database '${D1_DB_NAME}' exists..."
+          set +e
+            DB_LIST=$(wrangler d1 list --json 2>/tmp/d1_err.log)
+            STATUS=$?
+          set -e
+          if [ $STATUS -ne 0 ]; then
+            echo "❌ Failed to list D1 databases:"
+            cat /tmp/d1_err.log
+            exit 1
+          fi
+          if echo "$DB_LIST" | jq -e ".[] | select(.name == \"${D1_DB_NAME}\")" > /dev/null 2>&1; then
+            echo "✅ D1 database '${D1_DB_NAME}' already exists."
+            D1_ID=$(echo "$DB_LIST" | jq -r ".[] | select(.name == \"${D1_DB_NAME}\") | .uuid")
+            echo "D1_DATABASE_ID: $D1_ID"
+          else
+            echo "⚠️ D1 database '${D1_DB_NAME}' does not exist. Creating..."
+            wrangler d1 create "${D1_DB_NAME}"
+            DB_LIST=$(wrangler d1 list --json)
+            D1_ID=$(echo "$DB_LIST" | jq -r ".[] | select(.name == \"${D1_DB_NAME}\") | .uuid")
+            echo "✅ Created D1 database '${D1_DB_NAME}' with ID: $D1_ID"
+          fi
+          sed -i "s|PLACEHOLDER_D1_ID|$D1_ID|g" "$CONFIG_FILE"
+          echo "✅ D1 database setup completed."
+
+      - name: 📦 设置 R2 存储桶 / Set up R2 bucket
+        run: |
+          echo "🔍 Checking if R2 bucket '${R2_BUCKET_NAME}' exists..."
+          set +e
+            BUCKET_LIST=$(wrangler r2 bucket list 2>&1)
+            STATUS=$?
+          set -e
+          if [ $STATUS -ne 0 ]; then
+            echo "❌ Failed to list R2 buckets:"
+            echo "$BUCKET_LIST"
+            exit 1
+          fi
+          if echo "$BUCKET_LIST" | grep -q "${R2_BUCKET_NAME}"; then
+            echo "✅ R2 bucket '${R2_BUCKET_NAME}' already exists."
+          else
+            echo "⚠️ R2 bucket '${R2_BUCKET_NAME}' does not exist. Creating..."
+            wrangler r2 bucket create "${R2_BUCKET_NAME}"
+            echo "✅ R2 bucket '${R2_BUCKET_NAME}' created."
+          fi
+
+      - name: 🗄️ 初始化 D1 数据库表 / Initialize D1 database tables
+        run: |
+          CONFIG_FILE="wrangler-deploy.toml"
+          if [ -f "d1-init.sql" ]; then
+            echo "📄 Found d1-init.sql, executing migration..."
+            wrangler d1 execute "${D1_DB_NAME}" -c "$CONFIG_FILE" --file=d1-init.sql --remote
+            echo "✅ Database tables initialized."
+          else
+            echo "⚠️ No d1-init.sql found, skipping database initialization."
+          fi
+
+      - name: 🚀 开始部署 / Start deployment
+        id: deploy
+        run: |
+          echo "🚀 Starting deployment..."
+          wrangler deploy -c wrangler-deploy.toml 2>&1 \
+            | tee deploy.log \
+            | grep -v "https://.*\.workers\.dev" \
+            | sed -E 's/JWT_TOKEN .*/JWT_TOKEN (***)/' \
+            || true
+          DEPLOY_EXIT_CODE=${PIPESTATUS[0]}
+          if [ $DEPLOY_EXIT_CODE -ne 0 ]; then
+            echo "❌ Deployment failed!"
+            exit 1
+          fi
+          echo "✅ Deployment completed successfully!"
+
+      - name: 🗑️ 删除运行记录 / Delete old workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        continue-on-error: true
+        with:
+          retain_days: '1'
+          keep_minimum_runs: '1'
