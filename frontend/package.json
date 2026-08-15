@@ -1,0 +1,24 @@
+{
+  "name": "mailfree-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mailfree frontend — React + Vite, UI fully referenced from OmniMail.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "1.27.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "typescript": "5.9.3",
+    "vite": "8.1.5"
+  }
+}
