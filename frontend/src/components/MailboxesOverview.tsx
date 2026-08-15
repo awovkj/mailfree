@@ -138,7 +138,6 @@ export function MailboxesOverview({
             <div className="admin-workspace__heading">
               <p className="eyebrow">MAILBOX DIRECTORY · {roleLabel(session)}</p>
               <h1>所有邮箱</h1>
-              <p>查看系统内全部临时邮箱，支持按地址搜索与统计概览。</p>
             </div>
             <div className="user-header-actions">
               <label className="user-search">
@@ -180,7 +179,6 @@ export function MailboxesOverview({
                 <Globe size={17} />
                 <div>
                   <h2>可用域名</h2>
-                  <p>{domains.length} 个域名可用于生成邮箱</p>
                 </div>
               </header>
               <div className="admin-domain-list">

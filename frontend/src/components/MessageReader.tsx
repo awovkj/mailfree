@@ -58,8 +58,7 @@ export function MessageReader({
           <span className="reader-loading-mail"><Inbox size={22} /></span>
         </span>
         <span className="reader-loading-copy">
-          <strong>正在打开邮件</strong>
-          <small>内容加载中…</small>
+          <strong>正在加载邮件…</strong>
         </span>
       </div>
     )
@@ -70,7 +69,6 @@ export function MessageReader({
       <div className="reader-state reader-state--empty">
         <span className="reader-empty-symbol"><Inbox size={26} /></span>
         <h2>选择一封邮件</h2>
-        <p>从左侧列表选择邮件即可在此阅读，支持验证码一键复制与原始 HTML 渲染。</p>
       </div>
     )
   }

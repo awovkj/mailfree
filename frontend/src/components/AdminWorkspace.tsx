@@ -436,7 +436,6 @@ export function AdminWorkspace({
             <div className="admin-workspace__heading">
               <p className="eyebrow">USER MANAGEMENT · {roleLabel(session)}</p>
               <h1>用户管理</h1>
-              <p>管理账号角色、发信权限、邮箱配额与关联关系。</p>
             </div>
             <div className="user-header-actions">
               <button className="button button--secondary" type="button" aria-label="刷新用户列表" data-tooltip="刷新用户列表" disabled={refreshing} onClick={() => void load()}>

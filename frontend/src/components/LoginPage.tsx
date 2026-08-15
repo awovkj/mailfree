@@ -1,4 +1,4 @@
-import { AlertCircle, LoaderCircle, LogIn, ShieldCheck } from 'lucide-react'
+import { AlertCircle, LoaderCircle, LogIn } from 'lucide-react'
 import { useState } from 'react'
 import { api, ApiError, type Session } from '../lib/api'
 import { Brand, ThemeToggle } from './Chrome'
@@ -40,9 +40,6 @@ export function LoginPage({ onAuthenticated }: { onAuthenticated: (session: Sess
         <span className="auth-symbol"><MailfreeLogo size={26} /></span>
         <p className="eyebrow">WELCOME BACK</p>
         <h1>登录 Mailfree</h1>
-        <p className="auth-lead">
-          输入管理员、普通用户或邮箱账号即可开始。邮箱账号可直接使用邮箱地址登录，接收最近 24 小时内的邮件。
-        </p>
         <form className="auth-form" onSubmit={submit}>
           <label>
             <span>账号</span>
@@ -76,10 +73,6 @@ export function LoginPage({ onAuthenticated }: { onAuthenticated: (session: Sess
             登录
           </button>
         </form>
-        <div className="privacy-note">
-          <ShieldCheck size={16} />
-          <p>会话通过 HttpOnly Cookie 保存，邮件正文存储在你自己配置的 D1 数据库与 R2 存储中。</p>
-        </div>
       </section>
     </main>
   )
